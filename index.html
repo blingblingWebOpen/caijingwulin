@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">	
+		<meta name="keywords" content="武林财经">	
+		<title>资讯</title>
+		<link rel="stylesheet" href="css/lqbase.css" />
+		<link rel="stylesheet" href="css/lqpublic.css" />
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css">			
+		<script src="js/common.js"></script>
+		<script src="js/jquery-1.11.0.min.js"></script>
+		<script src="js/jquerysession.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script src="js/public.js"></script>	
+		<script type="text/javascript">
+			window.onresize = function(){
+				//当网页宽度大于800px的时候，跳转到pc版
+			      if(document.body.clientWidth > 800){
+			       //做什么
+			       window.location.href("");
+			     }
+			};
+					// banner banner/listHot
+		$.get(url+'banner/listHot', function(data) {
+		  	var imgs = data.data;//图解财经	
+		  	var html=[];	    
+		    for(var i = 0; i < imgs.length; i++)
+		    {
+		        // html += '<div class="swiper-slide"><a href="wenzde.html?id='+imgs[i].articleSid+'"><img src="'+imgs[i].imageUrl+'"></a></div>';
+		        html+= '<div class="swiper-slide"><a href="wenzde.html?id='+imgs[i].articleSid+'"><img src="'+imgs[i].imageUrl+'"></a></div>';
+		    }		    		    
+		     $('.swiper-wrapper').html(html); 
+		     var mySwiper = new Swiper ('.swiper-container', {
+			  	initialSlide:0,//默认从第一张图开始
+			  	autoplay: 5000,//可选选项，自动滑动
+			  	speed:300,
+			  	autoplayDisableOnInteraction:false,
+			    direction: 'horizontal',//滑动方向水平    
+			    loop: true,        
+			    pagination: '.swiper-pagination',   // // 如果需要分页器
+			  })
+		});
+		</script>
+	</head>
+	<body>
+		
+		<!-- 中间内容部分 -->
+		<div class="centerwrapper2">
+			<!-- banner轮播图 -->
+			<div class="banner bannerdiv2">
+				<!-- 搜索按钮组 -->
+				<div class="indexbtns">
+					<a class="indexsearch" href="search.html"><img src="image/icosearch1.png"></a>
+				</div>
+				 <div class="swiper-container">
+				    <div class="swiper-wrapper">
+				        <!-- <div class="swiper-slide"><a><img src="image/banner1.png"></a></div>
+				        <div class="swiper-slide"><a><img src="image/banner1.png"></a></div>
+				        <div class="swiper-slide"><a><img src="image/banner1.png"></a></div> -->
+				    </div>
+				    <div class="swiper-pagination"></div>	 		    
+				</div>
+			</div>
+			<script src="js/swiper-3.4.2.jquery.min.js"></script>
+			<!--banner轮播图end-->
+
+			<!-- 小导航 -->
+			<div class="navdiv">
+				<div class="navli">
+					<a onclick="onhref()">
+						<img class="navimg" src="image/iconav6.png" title="" />  
+						<span class="navtext navtext1">产业新知</span>
+					</a>
+				</div>
+				<div class="navli">
+					<a onclick="onhref1()">
+						<img class="navimg" src="image/iconav7.png" title="" />  
+						<span class="navtext navtext2">个股介绍</span>
+					</a>
+				</div>
+				<div class="navli">
+					<a onclick="onhref2()">
+						<img class="navimg" src="image/iconav8.png" title="" />  
+						<span class="navtext navtext3">投资评价</span>
+					</a>
+				</div>
+				<div class="navli">
+					<a onclick="onhref3()">
+						<img class="navimg" src="image/iconav9.png" title="" />  
+						<span class="navtext navtext4">名家分享</span>
+					</a>
+				</div>
+				<div class="navli">
+					<a onclick="onhref4()">
+						<img class="navimg" src="image/iconav10.png" title="" />  
+						<span class="navtext navtext5">图解财经</span>
+					</a>
+				</div>
+			</div>
+
+			<!-- 小图横向排列，图解财经 -->
+			<div class="rowpic" id="classifyone">
+				<!-- <div class="rowpictitle"><h2 class="titletext"><i class="icotitle"></i>图解财经</h2><a class="more">更多<i class="rightj"></i></a></div>
+				<div class="rowpicul">
+					<div class="rowpicli">
+						<a href="#">
+							<img class="propic" src="image/pic01.png" title="" />  
+							<span class="protitle">谁为世界经济把脉？</span>
+							<span class="profrom">财经大咖</span>
+						</a>
+					</div>
+					<div class="rowpicli">
+						<a href="#">
+							<img class="propic" src="image/pic02.png" title="" />  
+							<span class="protitle">谁为世界经济把脉？</span>
+							<span class="profrom">财经大咖</span>
+						</a>
+					</div>
+					<div class="rowpicli">
+						<a href="#">
+							<img class="propic" src="image/pic03.png" title="" />  
+							<span class="protitle">谁为世界经济把脉？</span>
+							<span class="profrom">财经大咖</span>
+						</a>
+					</div>
+				</div> -->
+			</div>
+
+			<!-- 小图配文排列 个人提升 -->
+			<div class="rowpic" id="top">
+				<!-- <div class="rowpictitle"><h2 class="titletext"><i class="icotitle"></i>热门推荐</h2><a class="more">更多<i class="rightj"></i></a></div>
+				<div class="rowpiculall">
+					<div class="rowpicliall">
+						<a href="#">
+							<div class="proimgdiv">
+								<img class="propicall" src="image/pic01.png" title="" /> 
+								<i class="icoread">阅读</i>
+							</div>
+							<div class="wenzdeall">
+								<span class="protitleall">谁为世界经济把脉？</span>
+								<p class="authorpro"><span class="authortipsred">社群达人</span><span class="authortext">徐小平</span></p>
+							</div> 							
+						</a>
+					</div>
+					<div class="rowpicliall">
+						<a href="#">
+							<div class="proimgdiv">
+								<img class="propicall" src="image/pic01.png" title="" /> 
+								<i class="icoread">视频</i>
+							</div>
+							<div class="wenzdeall">
+								<span class="protitleall">谁为世界经济把脉？</span>
+								<p class="authorpro"><span class="authortipsorange">社群达人</span><span class="authortext">徐小平</span></p>
+							</div> 							
+						</a>
+					</div>
+					<div class="rowpicliall">
+						<a href="#">
+							<div class="proimgdiv">
+								<img class="propicall" src="image/pic01.png" title="" /> 
+								<i class="icoread">视频</i>
+							</div>
+							<div class="wenzdeall">
+								<span class="protitleall">谁为世界经济把脉？</span>
+								<p class="authorpro"><span class="authortipsoldred">社群达人</span><span class="authortext">徐小平</span></p>
+							</div> 							
+						</a>
+					</div>
+				</div> -->
+			</div>
+
+			
+
+		</div>	
+
+		<!-- 底部导航 -->
+		<div id="footernav">
+			<!-- <a class="jinc" href="index.html">
+				<i class="footerimg1"></i>
+				<span class="red">首页</span>
+			</a> -->
+			<a class="jinc onthis" href="index.html">
+				<i class="footerimg2"></i>
+				<span>资讯</span>
+			</a>
+			<!-- <a class="jinc" href="purchased.html">
+				<i class="footerimg3"></i>
+				<span>已购</span>
+			</a> -->
+			<a class="jinc" href="my.html">
+				<i class="footerimg4"></i>
+				<span>我的</span>
+			</a>
+		</div>
+		<script type="text/javascript">
+		//图解财经，热门推荐
+		console.log($.session.get('token'));
+		var userid = $.session.get('token');
+
+		$.ajax({
+			headers: {'token' : userid },
+			type: "get",
+			url: url+"account/getInfo",
+			success: function(data){
+				if(data.code==2000){
+					console.log('登录成功');
+				}else if(data.code == 5000){
+					console.log('登录失败5000');
+					window.location.href = "login.html";
+				}else {
+					console.log('登录失败');
+					window.location.href = "login.html";
+				}
+				
+			}
+		});
+
+		  $.ajax({	 	
+		  	type: "get",
+		  	url: url+'article/home',
+			xhrFields: {
+	            withCredentials: true
+	        },
+	        crossDomain: true,
+		  	success: function(data) {
+		  	var tujiecaijinghtml = data.data.tujiecaijing;//图解财经
+		  	var top = data.data.top10;//热门
+
+		    var html = '<div class="rowpictitle"><h2 class="titletext"><i class="icotitle"></i>图解财经</h2><a class="more" onclick="onhref4()">更多<i class="rightj"></i></a></div><div class="rowpicul">';
+		    for(var i = 0; i < tujiecaijinghtml.length; i++)
+		    {
+		        html += '<div class="rowpicli">'+
+						'<a href="wenzde.html?id='+tujiecaijinghtml[i].sid+'">'+
+							'<img class="propic" src="'+tujiecaijinghtml[i].backgroundImage+'" title="" />'+
+							'<span class="protitle">'+tujiecaijinghtml[i].title+'</span>'+
+							'<span class="profrom">'+tujiecaijinghtml[i].authorName+'</span>'+
+						'</a></div>';
+		    }
+		    html += '</div>';		    
+		    $('#classifyone').html(html); 
+
+		    //热门
+		    var tops = '<div class="rowpictitle"><h2 class="titletext"><i class="icotitle"></i>热门推荐</h2><a class="more" href="secondpage3.html">更多<i class="rightj"></i></a></div><div class="rowpiculall">';
+		    for(var i = 0; i < top.length; i++)
+		    {
+		        tops += '<div class="rowpicliall">'+
+						'<a href="wenzde.html?id='+top[i].sid+'">'+
+							'<div class="proimgdiv">'+
+								'<img class="propicall" src="'+top[i].backgroundImage+'" alt="" /> '+
+								'<i class="icoread">文<br/>章</i>'+
+							'</div>'+
+							'<div class="wenzdeall">'+
+								'<span class="protitleall">'+top[i].title+'</span>'+
+								'<p class="authorpro"><span class="authortipsred">'+top[i].authorType+'</span><span class="authortext">'+top[i].authorName+'</span></p>'+
+							'</div>'+ 							
+						'</a>'+
+					'</div>';
+		    }
+		    tops += '</div>';		    
+		    $('#top').html(tops); 
+		}
+	});
+
+		 
+
+window.onload=function(){
+		$(".jinc").click(function(){
+			$(this).addClass('onthis').siblings('a').removeClass('onthis');					
+		});
+	}
+
+// 页面跳转
+var parm1=$(".navtext1").html();
+var parm2=$(".navtext2").html();
+var parm3=$(".navtext3").html();
+var parm4=$(".navtext4").html();
+var parm5=$(".navtext5").html();
+
+var urlline1 = 'secondpage2.html'+'?type='+parm1;
+var urlline2 = 'secondpage2.html'+'?type='+parm2;
+var urlline3 = 'secondpage2.html'+'?type='+parm3;
+var urlline4 = 'secondpage2.html'+'?type='+parm4;
+var urlline5 = 'secondpage2.html'+'?type='+parm5;
+function onhref(){
+	window.location.href=encodeURI(urlline1);   
+}
+function onhref1(){
+	window.location.href=encodeURI(urlline2); 
+}
+function onhref2(){
+	window.location.href=encodeURI(urlline3); 
+}
+function onhref3(){
+	window.location.href=encodeURI(urlline4); 
+}
+function onhref4(){
+	window.location.href=encodeURI(urlline5); 
+}
+	
+
+		</script>
+
+		
+	</body>	
+</html>

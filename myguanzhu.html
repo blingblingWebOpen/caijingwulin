@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">		
+		<title>我的关注</title>
+		<link rel="stylesheet" href="css/lqbase.css" />
+		<link rel="stylesheet" href="css/lqpublic.css" />
+		<script src="js/common.js"></script>
+		<script src="js/jquery-1.11.0.min.js"></script>
+		<script src="js/public.js"></script>
+		<script src="js/jquerysession.js"></script>
+		<link rel="stylesheet" href="css/message.css" />
+		<script src="js/message.js"></script>
+
+	</head>
+	<body>
+		<!--头部-->
+		<div class="tophead">
+			<a class="topback" onClick="javascript:history.back(-1);"><i class="icoback"></i>返回</a>
+			<div class="toptitle">我的关注</div>
+		</div>
+
+		<!-- 中间内容部分 -->
+		<div class="centerwrapper3" id="guanzhulist">
+			
+
+			<div class="maumtitle guanzhulist">
+				<div class="maumauthordiv">
+					<div class="maumauthorde">
+						<a href="#"><img class="authornameimg" src="image/pic10.png"></a>
+					</div>
+					<div class="wenzauthorde">
+						<span class="authorname">吴晓波</span>
+						<span class="maumtime">2017-12-09</span>						
+					</div>
+					
+				</div>
+
+			</div>
+
+
+			
+
+		</div>	
+
+	
+		
+		<!-- 判断登录状态 -->
+		<script type="text/javascript">
+		var userid = $.session.get('token');
+		$.ajax({
+			headers: {'token' : userid },
+			type: "get",
+			url: url+"account/getInfo",
+			success: function(data){
+				if(data.code==2000){
+					console.log('登录成功');
+				}else if(data.code == 5000){
+					console.log('登录失败5000');
+					window.location.href = "login.html";
+				}else {
+					console.log('登录失败');
+					window.location.href = "login.html";
+				}				
+				
+			}
+		});
+			//关注列表
+		  $.ajax({
+		  	headers: {'token' : userid },
+			type: "get",
+			url: url+"follow/list",
+		  	success: function(data){
+		  	var wenzhtml = data.data;//关注内容
+		  	var html = []; 
+		  	for (var i = wenzhtml.length - 1; i >= 0; i--) {
+		  		html += '<div class="maumtitle guanzhulist">'+
+				'<div class="maumauthordiv">'+
+					'<div class="maumauthorde">'+
+						'<a href="author.html?id='+wenzhtml[i].authorSid+'"><img class="authornameimg" src="'+wenzhtml[i].authorAvatar+'"></a>'+
+					'</div>'+
+					'<div class="wenzauthorde">'+
+						'<span class="authorname">'+wenzhtml[i].authorName+'</span>'+
+						'<span class="maumtime">'+wenzhtml[i].authorDiscription+'</span>'+						
+					'</div></div></div>';
+		  	}
+		    $('#guanzhulist').html(html); 
+		    
+		}
+		});
+	
+
+
+		</script>
+	</body>	
+</html>

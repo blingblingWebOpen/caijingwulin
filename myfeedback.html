@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">		
+		<title>用户反馈</title>
+		<link rel="stylesheet" href="css/lqbase.css" />
+		<link rel="stylesheet" href="css/lqpublic.css" />
+		<script src="js/common.js"></script>
+		<script src="js/jquery-1.11.0.min.js"></script>
+		<script src="js/public.js"></script>
+		<script src="js/jquerysession.js"></script>
+		<link rel="stylesheet" href="css/message.css" />
+		<script src="js/message.js"></script>		
+	</head>
+	<body>
+		<!--头部-->
+		<div class="tophead">
+			<a class="topback" onClick="javascript :history.back(-1);"><i class="icoback"></i>返回</a>
+			<div class="toptitle">用户反馈</div>
+		</div>
+
+		<!-- 中间内容部分 -->
+		<div class="centerwrapper3">
+			
+			<div class="feedback">
+				<p class="feedbacktitle">问题和意见</p>
+				<p class="feedbacktips">
+				欢迎您在产品使用过程中提出关于产品的反馈或建议，我们的产品经理会尽快回复您的反馈或建议。如您有开户或交易的相关问题，请<a class="orangefont" href="tel:400-2873-000">联系客服</a>可以获得更快回复。
+				</p>
+				<div class="feedbackcenter">
+					<textarea class="yij" placeholder="请在此输入您的问题或意见" value=""></textarea>
+					<!-- <h4>图片上传(选填，最多四张)</h4>
+					<div class="feedbackpics">
+						<img src="image/icophone.png">
+					</div> -->
+					
+				</div>
+				<button class="orangebtn" onclick="submityj()">提交</button>
+			</div>
+
+		</div>	
+
+		<script type="text/javascript">
+		//登录状态
+	console.log($.session.get('token'));
+		var userid = $.session.get('token');
+
+		$.ajax({
+			headers: {'token' : userid },
+			type: "get",
+			url: url+"account/getInfo",
+			success: function(data){
+				if(data.code==2000){
+					console.log('登录成功');
+				}else if(data.code == 5000){
+					console.log('登录失败5000');
+					window.location.href = "login.html";
+				}else {
+					console.log('登录失败');
+					window.location.href = "login.html";
+				}
+				
+			}
+		});
+
+		// 提交意见
+		function submityj(){
+			var yijian = $(".yij").val();
+			$.ajax({
+			headers: {'token' : userid },
+			type: "post",
+			url: url+"feedback/submit",
+			data: {
+				"content": yijian
+			},
+			success: function(data){
+				if(data.code==2000){
+					$.message('提交成功');
+				}else if(data.code == 5000){
+					$.message('提交失败5000');
+				}else {
+					$.message('提交失败');
+				}				
+				
+			}
+		});
+		}
+		</script>
+		
+	</body>	
+</html>

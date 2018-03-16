@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">		
+		<title>详情页面</title>
+		<link rel="stylesheet" href="css/lqbase.css" />
+		<link rel="stylesheet" href="css/lqpublic.css" />
+		<!--音频播放器-->
+    	<link rel="stylesheet" href="audio/css/audio_player.css">
+
+	</head>
+	<body>
+	
+
+		<!-- 中间内容部分 -->
+		<div class="centerwrapper2">
+			
+			<!-- 课程图片 -->
+			<div class="coursediv">
+				<img class="coursepic" src="image/pic07.png">
+				<!-- 返回按钮 -->
+				<a class="topback" onClick="javascript :history.back(-1);"><i class="icoback"></i>返回</a>
+				<!-- <div class="coursetitle">
+					<h2 class="title">世界 · 经济30讲</h2>
+					<span class="tips">重新理解世界经济</span>
+				</div> -->
+		
+			</div>
+
+			<!-- 音频播放 -->
+			    <div class="bg_white mb_20 pb_20 pad30">
+        <div class="box_radio">
+            <div class="book_title">
+                <div class="audio_title">[试听] 为什么你需要幽默感</div>
+            </div>
+            <div class="audio_box">
+				<div class="music-nav">
+                    <!--当前时间-->
+                    <div class="time" id="time_cur"> </div>
+                    <!--进度条-->
+                    <div class="audio_progress">
+                        <span class="audio_line"></span>
+                        <span class="audio_blue"></span>
+                        <span class="audio_dot"></span>
+                        <input type="range" min="0" max="0" step="0.4" value="0" id="scale" >
+                    </div>
+                    <!--歌曲时长-->
+                    <div class="time" id="time_long"></div>
+                </div>
+
+                <!--音乐控制面板-->
+                <div class="audio_btn">
+                    <!--快退-->
+                    <img class="btn_fr" src="audio/img/btn_fr.png" alt="">
+                    <!--旋转碟片-->
+                    <div class="cover" id="play"></div>
+                    <!--暂停/播放按钮-->
+                    <div class="btn_play btn_pause"></div>
+                    <!--快进-->
+                    <img class="btn_ff" src="audio/img/btn_ff.png" alt="">
+                </div>
+                
+                <audio id="music" src="http://other.web.ra01.sycdn.kuwo.cn/resource/n2/192/69/30/1696331887.mp3" >
+                    Your browser does not support HTML5 audio.
+                </audio>
+            </div>
+        </div>
+    </div>
+
+		
+
+		</div>
+
+		<!-- 弹层 -->
+		<div class="zhezhaoc" id="zhezhaoc2"></div>
+		<div class="zhezhao" id="zhezhao2">
+			<h4 class="paix">倍速</h4>
+			<div class="sclist">
+				<div class="scli">
+					<label><input type="radio" name="paixu" value="1.0" checked>1.0<i></i></label>
+				</div>
+				<div class="scli">
+					<label><input type="radio" value="1.5" name="paixu">1.5<i></i></label>
+				</div>
+				<div class="scli">
+					<label><input type="radio" value="2.0" name="paixu">2.0<i></i></label>
+				</div>
+			</div>
+			<a class="scbtn" id="beisubtn">确定</a>
+		</div>
+
+<!-- 底部导航 -->
+		<div id="footernav">
+			<a class="musicfoot" href="manuscript.html">
+				<i class="boimg1"></i>
+				<span class="red">文稿</span>
+			</a>
+			<a class="musicfoot" href="#">
+				<i class="boimg2"></i>
+				<span>0</span>
+			</a>
+			<a class="musicfoot" id="beisu">
+				<i class="boimg3"></i>
+				<span>倍速<sapn>
+			</a>
+			<a class="musicfoot" href="#">
+				<i class="boimg4"></i>
+				<span>分享</span>
+			</a>
+		</div>
+		
+
+		<script src="js/common.js"></script>
+		<script src="js/jquery-1.11.0.min.js"></script>
+		<script src="js/public.js"></script>
+		<!--音频播放器-->
+	    <script src="audio/js/audio_player.js"></script>	    
+	    <script type="text/javascript">
+		window.onload=function(){
+			var allheight = document.body.scrollHeight+"px";//获取屏幕高度,遮罩层需要
+				$(".musicfoot").click(function(){
+					// $(this).addClass('oncli').siblings('a').removeClass('oncli');
+					if ($(this).hasClass('oncli')) {
+						$(this).removeClass('oncli');
+					}else{
+						$(this).addClass('oncli')
+					}
+				});		
+				// 音频倍速播放
+				$("#beisu").click(function(){
+						$("#zhezhaoc2").css("display","flex");
+						$("#zhezhaoc2").css("height",allheight);
+						$("#zhezhao2").css("display","flex");
+					});		
+
+				// 遮罩层消失
+				 var x = document.getElementById("music");
+				// 向 audio 元素中添加 onratechange 事件，如果播放速度改变执行函数
+				x.addEventListener("ratechange", myFunction);
+				function myFunction() {
+				    console.log('倍速='+ x.playbackRate);
+				};
+
+				$("#beisubtn").click(function(){
+					$("#zhezhaoc2").css("display","none");
+					$("#zhezhao2").css("display","none");
+					var paixued = parseFloat($('input[name="paixu"]:checked').val());
+					x.playbackRate = paixued;
+					console.log(typeof paixued);
+					console.log('倍速='+ paixued);
+					console.log('音乐='+$("#music").playbackRate);
+					});
+				}
+			
+		</script>
+	    <script>
+	        $(function () {
+	            var $pupbox =   $(".pupbox"),
+	                $btnUp  = $(".btn_up"),
+	                $btnDown  = $(".btn_down");
+	            $pupbox.hide();
+	            $btnUp.show();
+	            /*弹窗*/
+	            $btnDown.click(function(){
+	                $pupbox.slideUp(500);
+	                $btnUp.delay(500).show(0)
+	            });
+	            $btnUp.click(function(){
+	                $pupbox.slideDown(500);
+	                $(this).hide(0)
+	            });
+	        });
+	    </script>
+	</body>	
+</html>

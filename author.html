@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">		
+		<title>作者详情</title>
+		<link rel="stylesheet" href="css/lqbase.css" />
+		<link rel="stylesheet" href="css/lqpublic.css" />
+		<script src="js/common.js"></script>
+		<script src="js/jquery-1.11.0.min.js"></script>
+		<script src="js/public.js"></script>
+		
+	</head>
+	<body>
+		
+		<!-- 中间内容部分 -->
+		<div class="centerwrapper4">
+			<!-- 课程图片 -->
+			<div class="coursediv wenzdediv">
+				<div class="blackc"></div>
+				<!-- 返回按钮 -->
+				<a class="topback" onClick="javascript :history.back(-1);"><i class="icoback"></i>返回</a>
+			</div>
+
+			<!-- 内容 -->
+			<div class="maumcenter">
+				<ul class="author01">
+					<li id="authortype" class="author02 listed" onclick="tabs('.maumcenter',0)"><span class="author03"></span></li>
+					<li class="author02" onclick="tabs('.maumcenter',1)"><span class="author03">文章列表</span></li>
+				</ul>
+
+				<script type="text/javascript">
+					function tabs(tabId, tabNum){
+						//设置点击后的切换样式
+						$(tabId + " ul li").removeClass(" listed");
+						$(tabId + " ul li").eq(tabNum).addClass(" listed");
+						//根据参数决定显示内容
+						$(tabId + " .authorcenter01").hide();
+						$(tabId + " .authorcenter01").eq(tabNum).show();
+					}
+				</script>
+
+			<div class="authorwarpper">
+				<div class="authorcenter01" style="display: block;">				
+					<!-- 作者介绍，机构介绍 -->
+					<div class="read2">
+						
+					</div>
+				</div>
+				<div class="authorcenter01">										
+					<div class="rowpiculall"></div>
+				</div>
+			</div>
+			</div>
+
+		</div>	
+		<script type="text/javascript">
+		//获取传过来的id
+		function getParam(paramName) {  
+		    paramValue = "", isFound = !1;  
+		    if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {  
+		        arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&"), i = 0;  
+		        while (i < arrSource.length && !isFound) arrSource[i].indexOf("=") > 0 && arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase() && (paramValue = arrSource[i].split("=")[1], isFound = !0), i++  
+		    }  
+		    return paramValue == "" && (paramValue = null), paramValue  
+		} 
+		var yid = getParam("id");//获取传过来的参数
+		//机构介绍/大咖介绍
+		  $.get(url+'author/viewInfo',
+		  {
+		  	"authorSid" : yid
+		  },
+		   function(data) {
+		   	var authorhtml = data.data.author;
+		   	var authorde = authorhtml.discription;//作者描述
+		   	var type = authorhtml.type; //机构或者作者个人
+		   	var bigimg = authorhtml.backgroundImage;// 作者背景图片
+		   	var articleshtml = data.data.articles; //文章列表
+
+		   	if (type === '机构') {
+		   		$('#authortype span').html('机构介绍');
+		   	}else{
+		   		$('#authortype span').html('作者介绍');
+		   	}
+		  		    
+		    var html='';
+		    for(var i = 0; i < articleshtml.length; i++)
+			    {
+			        html += '<div class="rowpicliall">'+
+								'<a href="wenzde.html?id='+articleshtml[i].sid+'">'+
+									'<img class="propicall" src="'+articleshtml[i].backgroundImage+'" title="" /> '+
+									'<div class="wenzdeall">'+
+										'<span class="protitleall authormar">'+articleshtml[i].title+'</span>'+
+										'<span class="authorname">'+articleshtml[i].authorName+'</span>'+
+										'<span class="authorname">字数:'+articleshtml[i].articleWords+'</span>'+
+										'<span class="authorname">'+articleshtml[i].readNum+'人已修炼</span>'+
+										
+									'</div></a></div>';
+			    }
+
+		    $('.read2').html(authorde); //作者描述
+		    $('.rowpiculall').html(html);//文章列表
+		    $('.wenzdediv').append('<img class="coursepic wenzde" src="'+bigimg+'">');
+		});
+		</script>
+	
+		
+	
+	</body>	
+</html>

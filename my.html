@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns:wb="http://open.weibo.com/wb"><!-- 微博 -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">				
+		<title>我的</title>
+		<link rel="stylesheet" href="css/lqbase.css" />
+		<link rel="stylesheet" href="css/lqpublic.css" />	
+		<!-- <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=YOUR APPKEY&debug=true" type="text/javascript" charset="utf-8"></script><!-- 微博 --> -->
+		<script src="js/common.js"></script>
+		<script src="js/jquery-1.11.0.min.js"></script>
+		<script src="js/jquerysession.js"></script>
+		<script src="js/public.js"></script>
+	</head>
+	<body>
+		<!-- 中间内容部分 -->
+		<div class="centerwrapper2">
+			<div class="mydiv">
+				<div class="mypic">
+				<img class="mybg" src="image/icomy01.png">
+					<a href="myedit.html">
+						<img class="myico" src="image/icomy02.png">
+					</a>
+					<div class="mytext">
+						<span class="myname"></span>
+						<p class="mytips"></p>
+					</div>
+				</div>
+
+				<!-- <div class="mylist">
+					<div class="myli ">
+						<div class="mytitles"><i class="icomy01"></i></div>
+						<div class="myjt nobor">
+							<a href="mycount.html">
+								<span class="mytap">我的账户</span>
+								<div class="myright">
+									<span class="myprice">0.00</span>
+									<i class="icoredj"></i>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div> -->
+
+				<div class="mylist">
+					<div class="myli">
+						<div class="mytitles"><i class="icomy02"></i></div>
+						<div class="myjt">
+						<a href="myguanzhu.html">
+							<span class="mytap">我的关注</span>
+							<div class="myright">
+								<i class="icoredj"></i>
+							</div>
+						</a>	
+						</div>
+					</div>
+					<div class="myli fenx">
+						<div class="mytitles"><i class="icomy03"></i></div>
+						<div class="myjt">
+						<a href="#">
+							<span class="mytap">分享给好友</span>
+							<div class="myright">
+								<i class="icoredj"></i>
+							</div>
+						</a>
+						</div>
+					</div>
+					<div class="myli">
+						<div class="mytitles"><i class="icomy04"></i></div>
+						<div class="myjt">
+						<a href="myfeedback.html">
+							<span class="mytap">用户反馈</span>
+							<div class="myright">
+								<i class="icoredj"></i>
+							</div>
+						</a>
+						</div>
+					</div>
+					<div class="myli">
+						<div class="mytitles"><i class="icomy05"></i></div>
+						<div class="myjt nobor">
+						<a href="myset.html">
+							<span class="mytap">设置</span>
+							<div class="myright">
+								<i class="icoredj"></i>
+							</div>
+						</a>	
+						</div>
+					</div>
+					
+				</div>
+
+			</div>
+
+		</div>	
+		
+		<!-- 底部导航 -->
+		<div id="footernav">
+			<!-- <a class="jinc" href="index.html">
+				<i class="footerimg1"></i>
+				<span class="red">首页</span>
+			</a> -->
+			<a class="jinc" href="index.html">
+				<i class="footerimg2"></i>
+				<span>资讯</span>
+			</a>
+			<!-- <a class="jinc" href="purchased.html">
+				<i class="footerimg3"></i>
+				<span>已购</span>
+			</a> -->
+			<a class="jinc onthis" href="my.html">
+				<i class="footerimg4"></i>
+				<span>我的</span>
+			</a>
+		</div>
+		
+		<!-- 判断登录状态 -->
+		<script type="text/javascript">
+		var userid = $.session.get('token');
+		var nickname = $.session.get('nickname');
+		var briefIntroduction =$.session.get('briefIntroduction');
+		$('.myname').html(nickname);
+		$('.mytips').html(briefIntroduction);
+		$.ajax({
+			headers: {'token' : userid },
+			type: "get",
+			url: url+"account/getInfo",
+			success: function(data){
+				if(data.code==2000){
+					console.log('登录成功');
+				}else if(data.code == 5000){
+					console.log('登录失败5000');
+					window.location.href = "login.html";
+				}else {
+					console.log('登录失败');
+					window.location.href = "login.html";
+				}
+				
+			}
+		});
+		</script>
+<!-- 分享 -->
+		<script type="text/javascript">
+	$(function(){
+		$('.zhezhao').hide();
+		$('.tancfenx').hide();
+		$('.fenx').click(function(){
+			$('.zhezhao').show();
+			$('.tancfenx').show();
+		});
+		$('.colse').click(function(){
+			$('.zhezhao').hide();
+			$('.tancfenx').hide();
+		});
+
+		// 微博分享
+		// WB2.anyWhere(function(W){
+		//     W.widget.selector({
+		//         id : "wb_selector"
+		//     });
+		// });
+		
+	});
+</script>
+<div class="zhezhao"></div>
+<div class="tancfenx">
+	<ul class="fnclear">
+	<li><a><img src="image/w1.png"><span>微信好友</span></a></li>
+	<li><a><img src="image/w2.png"><span>微信朋友圈</span></a></li>
+	<li><a><img src="image/QQ.png"><span>QQ好友</span></a></li>
+	<li><button id="wb_selector"><img src="image/w3.png"><span>微博</span></button></li>
+	</ul>
+	<img class="colse" src="image/canc-btn1.png">
+</div>
+<!--弹窗end-->	
+
+	
+		
+	</body>	
+</html>

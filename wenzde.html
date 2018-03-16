@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">		
+		<title>文章详情</title>
+		<link rel="stylesheet" href="css/lqbase.css" />
+		<link rel="stylesheet" href="css/lqpublic.css" />
+		<script src="js/common.js"></script>
+		<script src="js/jquery-1.11.0.min.js"></script>
+		<script src="js/public.js"></script>
+		<script src="js/jquerysession.js"></script>
+		<link rel="stylesheet" href="css/message.css" />
+		<script src="js/message.js"></script>
+
+	</head>
+	<body>
+		
+		<!-- 中间内容部分 -->
+		<div class="centerwrapper4">
+			<!-- 课程图片 -->
+			<div class="coursediv wenzdediv">	
+			<div class="blackc"></div>		
+				<!-- 返回按钮 -->
+				<a class="topback" onClick="javascript :history.back(-1);"><i class="icoback"></i>返回</a>
+			</div>
+
+
+			<div class="maumtitle wenzt">
+				<!-- <h2>个人财富应当如何累计</h2>
+
+				<div class="maumauthordiv">
+					<div class="maumauthorde">
+						<a href="#"><img class="authornameimg" src="image/pic10.png"></a>
+					</div>
+					<div class="wenzauthorde">
+					<span class="authorname">吴晓波</span>
+					<span class="maumtime">2017-12-09</span>						
+					</div>
+					<div class="wenzdegz">
+						<span class="icobtngz">关&nbsp;&nbsp;注</span>
+					</div>
+				</div> -->
+			</div>
+
+
+			<!-- 内容 -->
+			<div class="maumcenter">
+				
+			</div>
+
+		</div>	
+
+	
+		
+		<!-- 判断登录状态 -->
+		<script type="text/javascript">
+		var userid = $.session.get('token');
+		$.ajax({
+			headers: {'token' : userid },
+			type: "get",
+			url: url+"account/getInfo",
+			success: function(data){
+				if(data.code==2000){
+					console.log('登录成功');
+				}else if(data.code == 5000){
+					console.log('登录失败5000');
+					window.location.href = "login.html";
+				}else {
+					console.log('登录失败');
+					window.location.href = "login.html";
+				}				
+				
+			}
+		});
+		// 关注事件
+		function guanzhu(id){
+			console.log("关注事件");
+			$.ajax({
+			headers: {'token' : userid },
+			type: "post",
+			url: url+"follow/add",
+			data: {
+				"authorSid": id
+			},
+			success: function(data){
+				if(data.code==2000){
+					$.message('关注成功');
+					$(".icobtngz").html("关注成功");
+				}else if(data.code == 5000){
+					$.message('关注失败5000');
+					window.location.href = "login.html";
+				}else {
+					$.message('关注失败');
+					window.location.href = "login.html";
+				}
+				
+			}
+		});
+
+		}
+		
+	// json 时间格式转化 1520305366000
+	 function timeStamp2String(time){
+	    var datetime = new Date();
+	    datetime.setTime(time);
+	    var year = datetime.getFullYear();
+	    var month = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
+	    var date = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
+	    var hour = datetime.getHours()< 10 ? "0" + datetime.getHours() : datetime.getHours();
+	    var minute = datetime.getMinutes()< 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
+	    var second = datetime.getSeconds()< 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
+	    return year + "-" + month + "-" + date;
+}
+
+//获取传过来的id
+		function getParam(paramName) {  
+		    paramValue = "", isFound = !1;  
+		    if (this.location.search.indexOf("?") == 0 && this.location.search.indexOf("=") > 1) {  
+		        arrSource = unescape(this.location.search).substring(1, this.location.search.length).split("&"), i = 0;  
+		        while (i < arrSource.length && !isFound) arrSource[i].indexOf("=") > 0 && arrSource[i].split("=")[0].toLowerCase() == paramName.toLowerCase() && (paramValue = arrSource[i].split("=")[1], isFound = !0), i++  
+		    }  
+		    return paramValue == "" && (paramValue = null), paramValue  
+		} 
+		var yid = getParam("id");//获取传过来的参数
+
+			//文章详情
+		  $.ajax({
+		  	headers: {'token' : userid },
+			type: "get",
+			url: url+"article/viewInfo",
+			data:{
+			  	"articleSid": yid //文章sid
+			  },
+		   success: function(data){
+		  	var wenzhtml = data.data.article;//文章详情
+		  	var authorhtml = data.data.author; //作者
+		  	var wenztime = timeStamp2String(wenzhtml.createdDatetime);// 文章时间
+		  	var bigimg = wenzhtml.backgroundImage; //文章大图
+
+		    var html = '<h2>'+wenzhtml.title+'</h2>';		   
+		        html += '<div class="maumauthordiv">'+
+					'<div class="maumauthorde">'+
+						'<a href="author.html?id='+authorhtml.sid+'"><img class="authornameimg" src="'+authorhtml.avatar+'"></a>'+
+					'</div>'+
+					'<div class="wenzauthorde">'+
+					'<span class="authorname">'+authorhtml.name+'</span>'+
+					'<span class="maumtime">'+wenztime+'</span>'+						
+					'</div>'+
+					'<div class="wenzdegz">';
+					if(data.data.isFollow){
+						html+='<span class="icobtngz" onClick="guanzhu('+authorhtml.sid+')">已关注</span>';					
+					}else{
+						html+='<span class="icobtngz" onClick="guanzhu('+authorhtml.sid+')">关&nbsp;&nbsp;注</span>';
+		   			}
+		    html += '</div></div></div>';
+
+		    //内容部分
+		    var centerhtml = '<p class="maumauthor">'+authorhtml.name+'亲述</p>';
+		    	centerhtml +='<div class="read2">'+wenzhtml.discription+'</div>';
+		    
+		    $('.wenzt').html(html); 
+		    $('.maumcenter').html(centerhtml);
+		    $('.wenzdediv').append('<img class="coursepic wenzde" src="'+bigimg+'">');
+		}
+		});
+		</script>
+	</body>	
+</html>

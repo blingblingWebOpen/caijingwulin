@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">		
+		<title>已购</title>
+		<link rel="stylesheet" href="css/lqbase.css" />
+		<link rel="stylesheet" href="css/lqpublic.css" />	
+		<script src="js/common.js"></script>	
+		<script src="js/jquery-1.11.0.min.js"></script>
+	</head>
+	<body>
+		<!--头部-->
+		<div class="tophead">
+			<!-- <a class="topback" onClick="javascript :history.back(-1);"><i class="icoback"></i>返回</a> -->
+			<div class="toptitle">已购</div>
+		</div>
+
+		<!-- 中间内容部分 -->
+		<div class="centerwrapper">
+			<!-- 筛选 -->
+			<div class="purchasednav">
+				<div class="purchasedheard"><i class="icosx"></i><b class="purchasedtext">筛选</b></div>
+				<div class="purchaseddiv">
+					<ul class="purchaseddivul">
+						<li>全部</li>
+						<li>产业新知</li>
+						<li>个股介绍</li>
+						<li>投资评价</li>
+						<li>名家分享</li>
+						<li>图解财经</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- 已购列表 -->
+			<div class="purchasedlist">
+				<div class="viplist">
+					<i class="vipico"></i>
+					<div class="vipde">
+						<h4 class="viptitle">VIP会员</h4>
+						<span class="vipdes">0.1元畅选全网音视频</span>
+					</div>
+					<a class="openvipbtn" href="vip.html">去开通<i class="icorj"></i></a>
+				</div>
+			</div>
+
+		</div>	
+
+		<!-- 底部导航 -->
+		<div id="footernav">
+			<a class="jinc" href="index.html">
+				<i class="footerimg1"></i>
+				<span class="red">首页</span>
+			</a>
+			<a class="jinc" href="classify.html">
+				<i class="footerimg2"></i>
+				<span>分类</span>
+			</a>
+			<a class="jinc onthis" href="purchased.html">
+				<i class="footerimg3"></i>
+				<span>已购</span>
+			</a>
+			<a class="jinc" href="my.html">
+				<i class="footerimg4"></i>
+				<span>我的</span>
+			</a>
+		</div>
+
+		<!-- 弹层 -->
+		<div class="zhezhaoc" id="zhezhaoc1"></div>
+		<div class="zhezhao" id="zhezhao1">
+			<h4 class="paix">排序</h4>
+			<div class="sclist">
+				<div class="scli">
+					<label><input type="radio" name="paixu" checked>按最近阅读排序<i></i></label>
+				</div>
+				<div class="scli">
+					<label><input type="radio" name="paixu">按最新购买排序<i></i></label>
+				</div>
+				<div class="scli">
+					<label><input type="radio" name="paixu">按名称首字母排序<i></i></label>
+				</div>
+			</div>
+			<a class="scbtn">确定</a>
+		</div>
+
+		<script type="text/javascript">
+		window.onload=function(){
+				$(".jinc").click(function(){
+					$(this).addClass('onthis').siblings('a').removeClass('onthis');					
+				})
+			}
+		</script>		
+		<script src="js/public.js"></script>
+	</body>	
+</html>

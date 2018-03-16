@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">		
+		<title>编辑资料</title>
+		<link rel="stylesheet" href="css/lqbase.css" />
+		<link rel="stylesheet" href="css/lqpublic.css" />
+		<link rel="stylesheet" type="text/css" href="LCalendar/css/LCalendar.css" />
+		<script src="js/common.js"></script>
+		<script src="js/jquery-1.11.0.min.js"></script>
+		<script src="js/public.js"></script>
+		<script src="js/jquerysession.js"></script>
+		<link rel="stylesheet" href="css/message.css" />
+		<script src="js/message.js"></script>
+		<script src="LCalendar/js/LCalendar.js" type="text/javascript"></script>
+		<!-- <link rel="stylesheet" type="text/css" href="css/DateTimePicker.css" />
+		<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript" src="js/DateTimePicker.js"></script> -->
+	</head>
+	<body>
+		<!--头部-->
+		<div class="tophead">
+			<a class="topback" onClick="javascript :history.back(-1);"><i class="icoback"></i>返回</a>
+			<div class="toptitle">编辑资料</div>
+		</div>
+
+		<!-- 中间内容部分 -->
+		<div class="centerwrapper3">
+			<!-- 我的资料 -->
+			<div class="editdiv">
+				<img class="editpic" src="image/picvip.png"/>  
+				<input type="text" class="mytips" name="jies" value="" placeholder="请输入个人介绍">
+			</div>
+
+			<div class="editlist">
+				<div class="editli">
+					<label>昵称：</label>
+					<input class="editname" type="text" name="nickname" placeholder="请输入昵称">
+				</div>
+				<div class="editli">
+					<label>性别：</label>
+					<input class="editname" type="text" name="sex" placeholder="请输入男、女">
+				</div>
+				<div class="editli nobor">
+					<label>出生年份：</label>
+					<input class="editname" id="start_date" type="text" name="birthday" placeholder="请输入昵称" readonly>
+				</div>
+			</div>
+
+			<div class="editlist">
+				<div class="editli">
+					<label>学历：</label>
+					<input class="editname" type="text" name="education" placeholder="请输入学历">
+				</div>
+				<div class="editli">
+					<label>行业：</label>
+					<input class="editname" type="text" name="industry" placeholder="请输入行业">
+				</div>
+				<div class="editli nobor">
+					<label>职业：</label>
+					<input class="editname" type="text" name="occupation" placeholder="请输入职业">
+				</div>
+			</div>	
+
+			<button class="orangebtn" id="updateInfo" onclick="updataInfo()">确认</button>
+
+		</div>	
+		<div id="dtBox"></div>
+		
+		<script src="js/common.js"></script>
+			<script type="text/javascript">
+		var calendar = new LCalendar();
+		calendar.init({
+			'trigger': '#start_date', //标签id
+			'type': 'date', //date 调出日期选择 datetime 调出日期时间选择 time 调出时间选择 ym 调出年月选择,
+			'minDate': (new Date().getFullYear()-40) + '-' + 1 + '-' + 1, //最小日期
+			'maxDate': (new Date().getFullYear()) + '-' + 12 + '-' + 31 //最大日期
+		});
+
+		//判断登录状态
+		var userid = $.session.get('token');
+		$.ajax({
+			headers: {'token' : userid },
+			type: "get",
+			url: url+"account/getInfo",
+			success: function(data){
+				if(data.code==2000){
+					console.log('登录成功');
+				}else if(data.code == 5000){
+					console.log('登录失败5000');
+					window.location.href = "login.html";
+				}else {
+					console.log('登录失败');
+					window.location.href = "login.html";
+				}
+				
+			}
+		});
+
+		$("input[name='nickname']").val($.session.get('nickname'));
+		$("input[name='sex']").val($.session.get('sex'));
+		$("input[name='birthday']").val($.session.get('birthday'));
+		$("input[name='education']").val($.session.get('education'));
+		$("input[name='industry']").val($.session.get('industry'));
+		$("input[name='occupation']").val($.session.get('occupation'));
+		$("input[name='jies']").val($.session.get('briefIntroduction'));
+		
+
+	function updataInfo(){
+		//个人信息更新		
+		//个人信息更新
+		var briefIntroduction = $("input[name='jies']").val();
+		var nickname = $("input[name='nickname']").val();
+		var sex = $("input[name='sex']").val();
+		var birthday = $("input[name='birthday']").val();
+		var education = $("input[name='education']").val();
+		var industry = $("input[name='industry']").val();
+		var occupation = $("input[name='occupation']").val();
+
+		$.ajax({
+			headers: {'token' : userid },
+			type: "post",
+			url: url+"account/updateInfo",
+			data: {
+				"briefIntroduction": briefIntroduction,
+				"nickname": nickname,
+				"sex": sex,
+				"birthday": birthday,
+				"education": education,
+				"industry": industry,
+				"occupation": occupation
+			},
+			success: function(data){
+
+				if(data.code==2000){
+					$.message('更新成功');
+					// 更新session内存值
+					$.session.set('nickname',nickname);
+					$.session.set('birthday',birthday);
+					$.session.set('education',education);
+					$.session.set('industry',industry);
+					$.session.set('occupation',occupation);
+					$.session.set('sex',sex);
+					$.session.set('briefIntroduction',briefIntroduction);
+					window.location.href="my.html";
+				}else if(data.code == 5000){
+					$.message('更新失败5000');
+				}else {
+					console.log('更新失败');
+				}
+				
+			}
+		});
+
+	};
+
+			
+	</script>
+	<!-- <script type="text/javascript">
+	$(document).ready(function()
+			{
+				$("#dtBox").DateTimePicker(
+				{
+					addEventHandlers: function()
+					{
+						var dtPickerObj = this;
+					
+						$("#start_date").click(function(e)
+						{
+							e.stopPropagation();
+							dtPickerObj.showDateTimePicker($("#start_date"));
+						});
+					
+						
+					}
+				});
+			});
+	</script> -->
+	</body>	
+</html>

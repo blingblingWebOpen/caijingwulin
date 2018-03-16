@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">		
+		<title>搜索</title>
+		<link rel="stylesheet" href="css/lqbase.css" />
+		<link rel="stylesheet" href="css/lqpublic.css" />		
+		<script src="js/common.js"></script>
+		<script src="js/jquery-1.11.0.min.js"></script>
+		<script src="js/public.js"></script>
+		<script src="js/jquerysession.js"></script>
+		<link rel="stylesheet" href="css/message.css" />
+		<script src="js/message.js"></script>
+		<script src="https://cdn.bootcss.com/fastclick/1.0.6/fastclick.js"></script><!-- click延迟解决 -->
+		<script src="js/public.js"></script>	
+		<script type="text/javascript">
+			//click延迟解决
+				$(function() {  
+			    FastClick.attach(document.body);  
+			    console.log('123');
+			});   
+		</script>
+	</head>
+	<body>
+		
+		<!-- 中间内容部分 -->
+		<div class="centerwrapper4 searchdiv">
+			<div class="searchtop">
+				<div class="searchinput">
+					<div class="searchinputs"> 
+						<i class="icosearch"></i> 
+						<input class="searchinp" onblur="search()" type="text" placeholder="请输入" value=""/> 
+					</div>
+					<a class="cancel" onclick="javascript:history.back(-1);" >取消</a>
+				</div>
+			</div>
+			
+				<!-- <ul class="search-navul">
+				<li class="search-navli keyed"><a class="search-keyword" href="#">发现</a>
+				<div class="search-keywordcenter">
+										
+					<div class="search-keywordf">					
+						<h6>热门搜索</h6>
+						<div class="search-keywordli">
+							<span class="grydiv">许纪霖</span>
+							<span class="grydiv">赵林</span>
+							<span class="grydiv">鲍鹏山</span>
+							<span class="grydiv">骆玉民</span>
+							<span class="grydiv">鲍鹏山</span>
+							<span class="grydiv">骆玉玉玉玉民</span>
+							<span class="grydiv">鲍鹏山</span>
+							<span class="grydiv">骆玉民</span>
+							<span class="grydiv">骆玉民</span>
+							<span class="grydiv">骆玉民</span>
+							<span class="grydiv">骆玉民</span>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="search-navli"><a class="search-keyword" href="#">专栏内容</a>
+				<div class="search-keywordcenter"  style="display: none;">
+				
+					<div class="search-keywordf">				
+						<h6>热门搜索</h6>
+						<div class="search-keywordli">
+							<span class="grydiv">许纪霖</span>
+							<span class="grydiv">赵林</span>
+							<span class="grydiv">鲍鹏山</span>
+							<span class="grydiv">骆玉民</span>
+						</div>
+					</div>
+				</div>
+			</li>
+			<li class="search-navli"><a class="search-keyword" href="#">已购</a>
+				<div class="search-keywordcenter"  style="display: none;">
+				
+					<div class="search-keywordf">				
+						<h6>热门搜索</h6>
+						<div class="search-keywordli">
+							<span class="grydiv">许纪霖</span>
+							<span class="grydiv">赵林</span>
+							<span class="grydiv">鲍鹏山</span>
+							<span class="grydiv">骆玉民</span>
+						</div>
+					</div>
+				</div>
+			</li>
+			</ul> -->
+
+		</div>	
+
+
+				<!-- 判断登录状态 -->
+		<script type="text/javascript">
+		console.log($.session.get('token'));
+		var userid = $.session.get('token');
+		$.ajax({
+			headers: {'token' : userid },
+			type: "get",
+			url: url+"account/getInfo",
+			success: function(data){
+				if(data.code==2000){
+					console.log('登录成功');
+				}else if(data.code == 5000){
+					console.log('登录失败5000');
+					window.location.href = "login.html";
+				}else {
+					console.log('登录失败');
+					window.location.href = "login.html";
+				}				
+				
+			}
+		});
+
+
+function search(){
+	console.log('搜索');
+	var keywords = $(".searchinp").val();
+
+		//搜索接口
+		  $.ajax({
+		  	headers: {'token' : userid },
+			type: "get",
+			url: url+"article/listByKeword",
+			data: {
+				"keyword": keywords
+			},
+		  	success: function(data){
+		  	var jinplist = data.data;//搜索内容
+		  	var jphtml = []; 
+			    for(var i = 0; i < jinplist.length; i++)
+				    {
+				        jphtml += '<div class="rowpicliall">'+
+									'<a href="wenzde.html?id='+jinplist[i].sid+'">'+
+										'<img class="propicall" src="'+jinplist[i].backgroundImage+'" title="" /> '+
+										'<div class="wenzdeall">'+
+											'<span class="protitleall authormar">'+jinplist[i].title+'</span>'+
+											'<span class="authorname">'+jinplist[i].authorName+'</span>'+
+											'<span class="authorname">字数:'+jinplist[i].articleWords+'</span>'+
+											'<span class="authorname">'+jinplist[i].readNum+'人已修炼</span>'+
+											
+										'</div></a></div>';
+				    }
+				$('.centerwrapper4').append(jphtml);
+		}
+		});
+}
+
+/*直接点击enter免除手动点击登录按钮*/    
+$(document).keyup(function(event){
+    
+if(event.keyCode ==13){
+   search();    
+}
+    
+});
+</script>
+		
+		
+	</body>	
+</html>

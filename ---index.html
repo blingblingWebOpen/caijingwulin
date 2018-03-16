@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content="武林财经">		
+		<title>首页</title>
+		<link rel="stylesheet" href="css/lqbase.css" />		
+		<link rel="stylesheet" href="css/lqpublic.css" />		
+		<link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+		<script src="js/jquery-1.11.0.min.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/public.js"></script>
+		<script src="js/swiper-3.4.2.jquery.min.js"></script>
+	</head>
+	<body>
+
+		<!-- 中间内容部分 -->
+		<div class="centerwrapper2">
+			<!-- banner轮播图 -->
+			<div class="banner bannerdiv2">
+				<!-- 搜索按钮组 -->
+				<div class="indexbtns">
+					<a class="indexsearch" href="search.html"><img src="image/icosearch1.png"></a>
+				</div>
+
+				<div class="swiper-container">
+				    <div class="swiper-wrapper">
+				    <!-- <div class="bannerfont">武林财经</div> -->
+				        <div class="swiper-slide"><img src="image/banner1.png"></div>
+				        <div class="swiper-slide"><img src="image/banner1.png"></div>
+				        <div class="swiper-slide"><img src="image/banner1.png"></div>
+				    </div>
+				    <!-- 如果需要分页器 -->
+				    <div class="swiper-pagination"></div>			    
+				</div>
+			</div>
+			<script type="text/javascript">
+			var imgnum = 0;//图片默认从第一张开始			
+			  var mySwiper = new Swiper ('.swiper-container', {
+			  	initialSlide: imgnum,//默认从第一张图开始
+			  	autoplay: 10000,//可选选项，自动滑动
+			  	speed:300,
+			  	autoplayDisableOnInteraction:false,
+			    direction: 'horizontal',//滑动方向水平    
+			    loop: true,        
+			    pagination: '.swiper-pagination',   // // 如果需要分页器
+			    on: {
+				    slideChangeTransitionStart: function(){
+				    	// for (var i = Things.length - 1; i >= 0; i--) {
+				    	// 	Things[i]
+				    	// }
+				      // alert(this.activeIndex);
+				    },
+				},
+			  });
+			 console.log(mySwiper.initialSlide);
+
+			  $('.swiper-slide-active').find('.bannerfont').fadeIn('1000');
+
+			</script>
+			<!--banner轮播图end-->
+
+			<!-- 小导航 -->
+			<div class="navdiv">
+				<div class="navli">
+					<a href="secondpage.html">
+						<img class="navimg" src="image/iconav1.png" title="" />  
+						<span class="navtext">精品榜</span>
+					</a>
+				</div>
+				<div class="navli">
+					<a href="secondpage.html">
+						<img class="navimg" src="image/iconav2.png" title="" />  
+						<span class="navtext">大师课</span>
+					</a>
+				</div>
+				<div class="navli">
+					<a href="secondpage.html">
+						<img class="navimg" src="image/iconav3.png" title="" />  
+						<span class="navtext">订阅专栏</span>
+					</a>
+				</div>
+				<div class="navli">
+					<a href="secondpage.html">
+						<img class="navimg" src="image/iconav4.png" title="" />  
+						<span class="navtext">视频优选</span>
+					</a>
+				</div>
+				<div class="navli">
+					<a href="secondpage.html">
+						<img class="navimg" src="image/iconav5.png" title="" />  
+						<span class="navtext">会员福利</span>
+					</a>
+				</div>
+			</div>
+
+			<!-- 小图横向排列，免费区 -->
+			<div class="rowpic">
+				<div class="rowpictitle"><h2 class="titletext"><i class="icotitle"></i>免费区</h2><a class="more" href="secondpage.html">更多<i class="rightj"></i></a></div>
+				<div class="rowpicul" id="free">
+				<!-- 	<div class="rowpicli">
+						<a href="thirdpage.html">
+							<img class="propic" src="image/pic01.png" title="" />  
+							<span class="protitle">谁为世界经济把脉？</span>
+							<span class="profrom">财经大咖</span>
+						</a>
+					</div>
+					<div class="rowpicli">
+						<a href="thirdpage.html">
+							<img class="propic" src="image/pic02.png" title="" />  
+							<span class="protitle">谁为世界经济把脉？</span>
+							<span class="profrom">财经大咖</span>
+						</a>
+					</div>
+					<div class="rowpicli">
+						<a href="thirdpage.html">
+							<img class="propic" src="image/pic03.png" title="" />  
+							<span class="protitle">谁为世界经济把脉？</span>
+							<span class="profrom">财经大咖</span>
+						</a>
+					</div> -->
+				</div>
+			</div>
+
+			<!-- 大图排列 精品榜-->
+			<div class="columnpic">
+				<div class="rowpictitle"><h2 class="titletext"><i class="icotitle"></i>精品榜</h2><a class="more">更多<i class="rightj"></i></a></div>
+
+				<div class="columnpicul" id="jinplist">
+					<!-- <div class="columnpicli">
+						<a href="thirdpage.html">
+							<img class="columnpicimg" src="image/pic04.png">  
+							<div class="columnpicdetils">
+								<h4 class="columnpictitle">2018中国经济走向何方？</h4>
+								<p class="columnpicauthor">徐小平</p>
+								<div class="columnpicde">
+									<span class="columnprice"><sub>￥</sub>99</span>
+									<span class="columnpictips">5课时</span>
+									<span class="columnpictips">音频</span>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="columnpicli">
+						<a href="thirdpage.html">
+							<img class="columnpicimg" src="image/pic04.png">  
+							<div class="columnpicdetils">
+								<h4 class="columnpictitle">2018中国经济走向何方？</h4>
+								<p class="columnpicauthor">徐小平</p>
+								<div class="columnpicde">
+									<span class="columnprice"><sub>￥</sub>99</span>
+									<span class="columnpictips">5课时</span>
+									<span class="columnpictips">音频</span>
+								</div>
+							</div>
+						</a>
+					</div> -->
+				</div>
+			</div>
+
+			<!-- 大图排列 大师课-->
+			<div class="columnpic">
+				<div class="rowpictitle"><h2 class="titletext"><i class="icotitle"></i>大师课</h2><a class="more">更多<i class="rightj"></i></a></div>
+
+				<div class="columnpicul" id="masterlist">
+					<div class="columnpicli">
+						<a href="thirdpage.html">
+							<img class="columnpicimg" src="image/pic04.png">  
+							<div class="columnpicdetils">
+								<h4 class="columnpictitle">2018中国经济走向何方？</h4>
+								<p class="columnpicauthor">徐小平</p>
+								<div class="columnpicde">
+									<span class="columnprice"><sub>￥</sub>99</span>
+									<span class="columnpictips">5课时</span>
+									<span class="columnpictips">音频</span>
+								</div>
+							</div>
+						</a>
+					</div>
+					
+				</div>
+			</div>
+
+			<!-- 排行榜 -->
+			<div class="ranking">
+				<div class="rankingtitle titletext"><i class="icotitle"></i>本月大师排行榜</div>
+				<div class="rankinglist">
+					<ul class="rankingul" id="authors">
+						<!-- <li class="rankingli">
+							<i class="ranknum">1</i>
+							<div class="rankman">
+								<div class="rankingpic">
+									<i class="goldtop"></i>
+									<img src="image/pic05.png">
+								</div>
+								<span class="rankname">吴晓波</span>
+							</div>
+						</li>
+						<li class="rankingli">
+							<i class="ranknum">1</i>
+							<div class="rankman">
+								<div class="rankingpic">
+									<i class="goldtop"></i>
+									<img src="image/pic05.png">
+								</div>
+								<span class="rankname">吴晓波</span>
+							</div>
+						</li>
+						<li class="rankingli">
+							<i class="ranknum">1</i>
+							<div class="rankman">
+								<div class="rankingpic">
+									<i class="goldtop"></i>
+									<img src="image/pic05.png">
+								</div>
+								<span class="rankname">吴晓波</span>
+							</div>
+						</li>
+						<li class="rankingli">
+							<i class="ranknum">1</i>
+							<div class="rankman">
+								<div class="rankingpic">
+									<i class="goldtop"></i>
+									<img src="image/pic05.png">
+								</div>
+								<span class="rankname">吴晓波</span>
+							</div>
+						</li>
+						<li class="rankingli">
+							<i class="ranknum">1</i>
+							<div class="rankman">
+								<div class="rankingpic">
+									<i class="goldtop"></i>
+									<img src="image/pic05.png">
+								</div>
+								<span class="rankname">吴晓波</span>
+							</div>
+						</li>
+						<li class="rankingli">
+							<i class="ranknum">1</i>
+							<div class="rankman">
+								<div class="rankingpic">
+									<i class="goldtop"></i>
+									<img src="image/pic05.png">
+								</div>
+								<span class="rankname">吴晓波</span>
+							</div>
+						</li> -->
+					</ul>
+				</div>
+			</div>
+
+			<!-- 小图横向排列，猜你喜欢 -->
+			<div class="rowpic">
+				<div class="rowpictitle"><h2 class="titletext"> <i class="icotitle"></i>猜你喜欢</h2><a class="more">换一批<i class="rightj"></i></a></div>
+				<div class="rowpicul">
+					<div class="rowpicli">
+						<a href="#">
+							<img class="propic" src="image/pic01.png" title="" />  
+							<span class="protitle">谁为世界经济把脉？</span>
+							<span class="profrom">财经大咖</span>
+						</a>
+					</div>
+					<div class="rowpicli">
+						<a href="#">
+							<img class="propic" src="image/pic02.png" title="" />  
+							<span class="protitle">谁为世界经济把脉？</span>
+							<span class="profrom">财经大咖</span>
+						</a>
+					</div>
+					<div class="rowpicli">
+						<a href="#">
+							<img class="propic" src="image/pic03.png" title="" />  
+							<span class="protitle">谁为世界经济把脉？</span>
+							<span class="profrom">财经大咖</span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- 大图排列 热门排行-->
+			<div class="columnpic">
+				<div class="rowpictitle"><h2 class="titletext"><i class="icotitle"></i>热门排行</h2><a class="more">更多<i class="rightj"></i></a></div>
+
+				<div class="columnpicul">
+					<div class="columnpicli">
+						<a href="#">
+							<img class="columnpicimg" src="image/pic04.png">  
+							<div class="columnpicdetils">
+								<h4 class="columnpictitle">2018中国经济走向何方？</h4>
+								<p class="columnpicauthor">徐小平</p>
+								<div class="columnpicde">
+									<span class="columnprice"><sub>￥</sub>99</span>
+									<span class="columnpictips">5课时</span>
+									<span class="columnpictips">音频</span>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="columnpicli">
+						<a href="#">
+							<img class="columnpicimg" src="image/pic04.png">  
+							<div class="columnpicdetils">
+								<h4 class="columnpictitle">2018中国经济走向何方？</h4>
+								<p class="columnpicauthor">徐小平</p>
+								<div class="columnpicde">
+									<span class="columnprice"><sub>￥</sub>99</span>
+									<span class="columnpictips">5课时</span>
+									<span class="columnpictips">音频</span>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- 小图配文排列 咨询 -->
+			<div class="rowpic">
+				<div class="rowpictitle"><h2 class="titletext"><i class="icotitle"></i>资讯</h2></div>
+				<div class="rowpiculall">
+					<div class="rowpicliall">
+						<a href="#">
+							<img class="propicall" src="image/pic01.png" title="" /> 
+							<div class="wenzdeall">
+								<span class="protitleall">谁为世界经济把脉？</span>
+								<span class="profromall">想知道个人财富如何积累么？</span>
+								<span class="profromall">想知道个人财富如何积累么？</span>
+							</div> 							
+						</a>
+					</div>
+					<div class="rowpicliall">
+						<a href="#">
+							<img class="propicall" src="image/pic01.png" title="" /> 
+							<div class="wenzdeall">
+								<span class="protitleall">谁为世界经济把脉？</span>
+								<span class="profromall">想知道个人财富如何积累么？</span>
+								<span class="profromall">想知道个人财富如何积累么？</span>
+							</div> 							
+						</a>
+					</div>
+					<div class="rowpicliall">
+						<a href="#">
+							<img class="propicall" src="image/pic01.png" title="" /> 
+							<div class="wenzdeall">
+								<span class="protitleall">谁为世界经济把脉？</span>
+								<span class="profromall">想知道个人财富如何积累么？</span>
+								<span class="profromall">想知道个人财富如何积累么？</span>
+							</div> 							
+						</a>
+					</div>
+				</div>
+			</div>
+
+		</div>	
+
+		<!-- 底部导航 -->
+		<div id="footernav">
+			<!-- <a class="jinc onthis" href="index.html">
+				<i class="footerimg1"></i>
+				<span class="red">首页</span>
+			</a> -->
+			<a class="jinc" href="classify.html">
+				<i class="footerimg2"></i>
+				<span>分类</span>
+			</a>
+			<!-- <a class="jinc" href="purchased.html">
+				<i class="footerimg3"></i>
+				<span>已购</span>
+			</a> -->
+			<a class="jinc" href="my.html">
+				<i class="footerimg4"></i>
+				<span>我的</span>
+			</a>
+		</div>
+		<script type="text/javascript">
+			//请求数据
+			var masterhtml=[]; //大师课
+			var jphtml=[];//精品榜
+			var freehtml= []; //免费
+			var authorshtml = []; //排行榜
+
+			$.get(url + 'home',
+		    	function(data,status){
+		    		console.log(data.message);
+		    		var jinplist = data.data.competitiveProductsCourses.content;
+		    		//精品榜
+					var masterlist = data.data.masterCourses.content;
+					var freelist = data.data.freeCourses.content;
+					var authorslist = data.data.authors;
+
+		    		var jinpleng = data.data.competitiveProductsCourses.totalElements;//首页精品榜的数量
+		    		var masterleng = data.data.masterCourses.totalElements;
+		    		var freeleng = data.data.freeCourses.totalElements;
+		    		//大师课
+		    		for (var i = masterleng - 1; i >= 0; i--) {
+		    			masterhtml+='<div class="columnpicli">'+
+						'<a href="thirdpage.html"><div class="blackc borradius"></div>'+
+							'<img class="columnpicimg" src="'+masterlist[i].thumbnail+'">'+
+							'<div class="columnpicdetils">'+
+								'<h4 class="columnpictitle">'+masterlist[i].courseSubTitle+'</h4>'+
+								'<p class="columnpicauthor">'+masterlist[i].authorName+'</p>'+
+								'<div class="columnpicde">'+
+									'<span class="columnprice"><sub>￥</sub>'+masterlist[i].fee+'</span>'+
+									'<span class="columnpictips">'+masterlist[i].courseNum+'课时</span>'+
+									'<span class="columnpictips">音频</span>'+
+								'</div></div></a></div>';
+		    		}
+
+		    		//精品榜数据
+		    		for (var i = jinpleng - 1; i >= 0; i--) {
+		    			jphtml+='<div class="columnpicli">'+
+						'<a href="thirdpage.html"><div class="blackc borradius"></div>'+
+							'<img class="columnpicimg" src="'+jinplist[i].thumbnail+'">'+
+							'<div class="columnpicdetils">'+
+								'<h4 class="columnpictitle">'+jinplist[i].courseSubTitle+'</h4>'+
+								'<p class="columnpicauthor">'+jinplist[i].authorName+'</p>'+
+								'<div class="columnpicde">'+
+									'<span class="columnprice"><sub>￥</sub>'+jinplist[i].fee+'</span>'+
+									'<span class="columnpictips">'+jinplist[i].courseNum+'课时</span>'+
+									'<span class="columnpictips">音频</span>'+
+								'</div></div></a></div>';
+		    						
+		    					}
+
+		    		//免费课程
+		    		for (var i = freeleng - 1; i >= 0; i--) {
+		    			freehtml+='<div class="rowpicli">'+
+						'<a href="thirdpage.html">'+
+							'<img class="propic" src="'+freelist[i].thumbnail+'" title="" />'+ 
+							'<span class="protitle">'+freelist[i].courseSubTitle+'</span>'+
+							'<span class="profrom">'+freelist[i].authorName+'</span>'+
+						'</a></div>';
+		    						
+		    					}	
+
+		    		for (var i = authorslist.length - 1; i >= 0; i--) {
+		    			authorshtml+= '<li class="rankingli">'+
+							'<i class="ranknum">'+authorslist[i].sortBy+'</i>'+
+							'<div class="rankman">'+
+								'<div class="rankingpic">'+
+									'<i class="goldtop"></i>'+
+									'<img src="'+authorslist[i].avatar+'">'+
+								'</div>'+
+								'<span class="rankname">'+authorslist[i].name+'</span>'+
+							'</div></li>';
+		    						
+		    					}	
+
+		    			$('#jinplist').html(jphtml);
+		    			$('#masterlist').html(masterhtml);
+		    			$('#free').html(freehtml);
+		    			$('#authors').html(authorshtml);
+				});
+
+		
+		</script>
+
+	</body>	
+</html>

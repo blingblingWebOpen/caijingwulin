@@ -1,0 +1,2444 @@
+/*选择登录、注册*/
+form[name=login],.form{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 94%;
+    height: auto;
+    margin: 0 auto;
+}
+.logodiv{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 1.7rem;
+    height: auto;
+    margin: 0 auto;
+    margin-top: .29rem;
+}
+.logodiv img{
+    width: 100%;
+    height: auto;
+}
+.logobtns{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 5.86rem;
+    height: auto;
+    margin: 0 auto;
+    margin-top: .4rem;
+    margin-bottom: 3.7rem;
+}
+.logobtn{
+    width: 5.86rem;
+    height: .78rem;
+    font-size: .3rem;
+    line-height: .78rem;
+    text-align: center;
+    border-radius: 6px;
+    background: none;
+    color: #e84938;
+    border: 2px solid #e84938;
+    margin-bottom: .32rem;
+}
+/*注册*/
+.register{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    background: #fff;
+    margin: 0 auto;
+    margin-top: 1.55rem;
+    margin-bottom: 1.5rem;
+}
+.userdiv{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.userp2{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: .9rem;
+    border-bottom: 1px solid #e6e6e7;
+}
+.userp2 label,.userp2 input[type=text]{
+    height: .9rem;
+    font-size: .28rem;
+    line-height: .9rem;
+    color: #282828;
+}
+.rpassword{
+    flex:0 0 1rem;
+}
+.userp2 input[type=text]{
+    flex: 1;
+    font-size: .28rem;
+   text-indent: .2rem;
+}
+.phoneup{
+    display: flex;
+    flex: 0 0 1rem;    
+    justify-content: center;
+    align-items: center;
+    height: .9rem;
+}
+.phoneup span{
+    font-size: .24rem;
+    color: #e84938;
+}
+.ico01{
+    display: inline-flex;
+    width: .12rem;
+    height: .08rem;
+    background: url(../image/ico01@3x.png) center no-repeat;
+    background-size: 100% 100%; 
+    margin-left: .38rem;
+}
+.nextbtn{
+    display: block;
+    width: 6.6rem;
+    height: .8rem;
+    margin: 0 auto;
+    border-radius: 6px;
+    font-size: .26rem;
+}
+.otheregister{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 3.45rem;
+    height: auto;
+    margin: 0 auto;
+}
+.ortitle{
+    font-size: .24rem;
+    margin-bottom: .4rem;
+    color: #020202;
+}
+.orcenter{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.way{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: .82rem;
+    height: auto;
+    position: relative;
+}
+.way a{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: .82rem;
+    height: auto;
+}
+.wayimg{
+    width: .82rem;
+    height: .82rem;
+    margin-bottom: .18rem;
+}
+.waytext{
+    font-size: .22rem;
+    color: #e84838;
+}
+/*微博*/
+#wb_connect_btn,#qqLoginBtn{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    opacity: 0;
+
+}
+
+/*登录*/
+.showpassword{    
+    /*background: url(../image/icoshowpassword@3x.png) center no-repeat;*/
+    /*background-size: 100% 100%;*/
+    margin-right: .4rem;
+}
+.showpassword img{
+    width: .42rem;
+    height: .24rem;
+}
+.yanzm{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 1.6rem;
+    height: .9rem;
+    padding: 0 .2rem;
+    background: none;
+    /*border-left: 1px solid #ccc;*/
+}
+.yanz,.yanztime{
+    width: 100%;
+    font-size: .28rem;
+    line-height: 1.2em;
+    text-align: center;
+    justify-content: center;
+    color: #ccc;
+    background: none;
+    border: none;
+    border-radius: 0px;
+    padding: 0 .2rem;
+    border-left: 1px solid #ccc;
+}
+.yanztime{
+    display: none;
+}
+.logintips,.logintips a{
+    font-size: .18rem;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    margin-top: .35rem;
+    margin-bottom: 2rem;
+}
+
+/*首页部分*/
+.banner{
+    display: block;
+    width:100%;
+    height: 3.74rem;
+    background: #fff;
+    margin-bottom: .39rem;
+}
+.navdiv{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    width: 94%;
+    height: 2.26rem;
+    margin: 0 auto;
+    margin-bottom: .39rem;
+    background: #fff;
+    border-radius: .3rem;
+    box-shadow: 0 0 30px rgba(0,0,0,.25);
+}
+.navli{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: auto;
+    overflow:hidden;
+}
+.navli a{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    overflow:hidden;
+}
+.navimg{
+    width: .84rem;
+    height: .84rem;
+    margin-bottom: .17rem;
+}
+.navtext{
+    width: 100%;
+    font-size: .22rem;
+    color: #000;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/*免费区*/
+.rowpic{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 94%;
+    height: auto;
+    padding: 0px .33rem .46rem .33rem;
+    background: #fff;
+    border-radius: .3rem;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    margin: 0 auto;
+    margin-bottom: .31rem;
+}
+.rowpictitle{
+   display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: .98rem;
+}
+.titletext{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    line-height: .98rem;
+    height: .98rem;
+    font-size: .32rem;   
+}
+.icotitle{
+    display: flex;
+    width: .37rem;
+    height: .42rem;
+    background: url(../image/ico01.png) left center no-repeat; 
+    background-size: .37rem .42rem; 
+}
+.more{
+    display: flex;
+    flex-flow: row;
+    font-size: .24rem;
+    color: #e84938;
+}
+.rightj{
+    display: flex;
+    width: .1rem;
+    height: .19rem;
+    background: url(../image/icoredj.png) right center no-repeat;
+    background-size: 100% 100%; 
+    margin-left: .1rem;
+}
+
+.rowpicul{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.rowpicli{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 32%;
+}
+.rowpicli a{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.propic{
+    width: 1.9rem;
+    height: 1.8rem;
+}
+.protitle{
+    width: 100%;
+    font-size: .26rem;
+    line-height: 1.2em;
+    color: #000;
+    margin-top: .16rem;
+    margin-bottom: .1rem;
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.profrom{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: .22rem;
+    color: rgba(0,0,0,.6);
+    text-align: left;
+}
+
+/*纵向排列图组*/
+.columnpic{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 94%;
+    height: auto;
+    padding: 0px .24rem .46rem .24rem;
+    background: #fff;
+    border-radius: .3rem;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    margin: 0 auto;
+    margin-bottom: .31rem;
+}
+.columnpicul{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+.columnpicli{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3.6rem;
+    margin: 0 auto;
+    margin-bottom: .37rem;
+}
+.columnpicli a{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 3.6rem;
+    margin: 0 auto;
+    position: relative;
+}
+.columnpicimg{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    width: 100%;
+    height: 3.6rem;
+    border-radius: .05rem;
+}
+.columnpicdetils{
+    position: absolute;
+    top: 2.27rem;
+    bottom: .31rem;
+    z-index: 2;
+    width: 90%;
+    padding-left: .34rem;
+    height: auto;
+}
+.columnpictitle{
+    font-size: .38rem;
+    margin-bottom: .13rem;
+    color: #fff;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.columnpicauthor{
+    font-size: .16rem;
+    margin-bottom: 9px;
+    color: #fff;
+}
+.columnpicde{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.columnprice{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: .2rem;
+    color: #e84938;
+    margin-right: .15rem;
+}
+.columnprice sub{
+    font-size: .14rem;
+    color: #e84938
+}
+.columnpictips{
+    font-size: .12rem;
+    border-radius: .05rem;
+    border: 1px solid #e84938;
+    color: #e84938;
+    margin-right: .05rem;
+    padding: .02rem .1rem;
+    text-align: center;
+}
+
+/*本月大师排行榜*/
+.ranking{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: .77rem;
+}
+.rankingtitle{
+    width: 100%;
+    height: auto;
+    padding: .25rem auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+}
+
+.rankinglist{
+     display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: .3rem;
+    box-flex: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+.rankingul{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.rankingli{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: .34rem;
+}
+.ranknum{
+    width: .3rem;
+    height: .3rem;
+    color: #fff;
+    text-align: center;
+    line-height: .3rem;
+    border-radius: 50%;
+    background: #adacab;
+    margin-right: .05rem;
+}
+.rankman{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;    
+}
+.rankingpic{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: .9rem;
+    height: auto;
+    border-radius: 50%;
+}
+.rankingpic img{
+    width: .9rem;
+    height: .9rem;
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.2);
+}
+.goldtop{
+    visibility:hidden;
+    width: .3rem;
+    height: .18rem;
+    z-index: 2;
+    background-image: url(../image/goldtop.png);
+    background-size: 100%;
+}
+.rankname{
+    width: .9rem;
+    height: auto;
+    font-size: .16rem;
+    margin-top: .12rem;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.rankingul li:nth-child(1) .ranknum{
+    background: #e84938;
+}
+.rankingul li:nth-child(1) .goldtop{
+    visibility:inherit;
+}
+.rankingul li:nth-child(2) .ranknum{
+    background: #d6a264;
+}
+.rankingul li:nth-child(3) .ranknum{
+    background: #ecc579;
+}
+
+/*分类*/
+.rowpiculall{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.rowpicliall{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: .29rem;
+}
+.rowpicliall a{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.propicall{
+    width: 1.91rem;
+    height: 1.91rem;
+    border-radius: 5px;
+}
+.wenzdeall{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 1;
+    margin-left: .32rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;    
+}
+.protitleall{
+    width: 100%;
+    font-size: .26rem;
+    margin-bottom: .2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;  
+}
+.profromall{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: .2rem;
+    margin-bottom: .15rem;
+}
+
+/*筛选*/
+.purchasednav{
+    display: flex;
+    width: 100%;
+    height: .84rem;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,.1);
+    margin-bottom: .18rem;
+}
+.purchasedheard{
+    flex: 0 0  1.3rem;
+    display: flex;
+    flex-flow: row;/*
+    padding: .32rem 0 .28rem 0;*/
+    justify-content: flex-start;
+    align-items: center;
+}
+.icosx{
+    display: flex;
+    width: .23rem;
+    height: .2rem;
+    margin-left: .29rem;
+    background: url(../image/icosx.png) left center no-repeat;
+    background-size: .23rem .2rem; 
+}
+.purchasedtext{
+    margin-left: .08rem;
+    font-size: .22rem;
+    padding-right: .24rem;
+    border-right: 1px solid #e84938;
+    white-space: nowrap;
+}
+.purchaseddiv{
+    flex: 1;
+    display: flex;
+    flex-flow: row;
+    height: .84rem;
+     box-flex: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+.purchaseddivul{    
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: .84rem;
+   
+
+}
+.purchaseddiv li{
+    padding: 0 .26rem;
+    font-size: .2rem;
+    white-space: nowrap;
+}
+
+.sclist{
+     display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.scli{
+     display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: .89rem;
+    border-bottom: 1px solid #e6e6e7;
+}
+.scli label{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: .89rem;
+    line-height: .89rem;
+    font-size: .3rem;
+    color: #000;
+}
+.scli i{
+    display: flex;
+    width: .38rem;
+    height: .38rem;
+    border-radius: 50%;
+    background: none;
+}
+.scli input[type="radio"]:checked + i{
+    background: url(../image/icoinp.png) center no-repeat;
+    background-size:.38rem .38rem;
+}
+.scbtn{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: .89rem;
+    font-size: .28rem;
+    color: #e84938;
+
+}
+.viplist{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 1.58rem;
+    background: url(../image/vipbg.jpg) center no-repeat;
+    background-size: 100% 100%;
+    box-shadow: 0px 1px 10px #ebddd6;
+}
+.vipico{
+    display: flex;
+    width: 1rem;
+    height: 1rem;
+    margin-left: .19rem;
+    background: url(../image/icovip.png) center no-repeat;
+    background-size: .68rem .6rem;
+}
+.vipde{
+    flex: 1;
+    margin-left: .2rem;
+}
+.viptitle{
+    font-size: .32rem;
+    margin-bottom: .2rem;
+    color: #ac806a;
+}
+.vipdes{
+    font-size: .2rem;
+    color: #b7917c;
+}
+.openvipbtn{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 1.33rem;
+    height: .47rem;
+    font-size: .2rem;
+    color: #fff;
+    margin-right: .34rem;
+    background: url(../image/vipbtn.png) center no-repeat;
+    background-size: 1.33rem .47rem; 
+}
+.icorj{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: .12rem;
+    height: .14rem;
+    background: url(../image/icorj.png) center no-repeat;
+    background-size: 100% 100%; 
+    margin-left: .08rem;
+}
+.swiper-slide img{
+    width: 100%;
+    height: 3.74rem;
+}
+
+.secondpagediv{
+    width: 100%;    
+}
+.secondpagelist{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: .07rem;
+}
+.secondpageli{
+    flex: 1;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
+    height: auto;
+    padding: .26rem .22rem .26rem .08rem;
+    background: #fff;
+    border-radius: .15rem;
+    margin-bottom: .18rem;
+    position: relative;
+}
+.secondpageli a{
+    flex: 1;
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    background: #fff;
+    border-radius: .15rem;
+}
+.secondpagepic{
+    flex: 0 0 1.5rem;
+}
+.secondpagepic img{
+    width: 1.5rem;
+    height: 2.02rem;
+    border-radius: .04rem;
+    margin-right: .3rem;
+}
+.secondtext{
+    flex: 1;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: url(../image/icogryj.png) right center no-repeat;
+    background-size: .09rem .17rem; 
+    padding-top: .22rem;
+    overflow: hidden;
+}
+.titlenum{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: .2rem;
+}
+.titlenum .title{
+    flex: 1;
+    font-size: .28rem;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.titlenum .gounum{
+    flex: 0 0 1.5rem;
+    font-size: .16rem;
+    text-align: right;
+    color: #878686;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.secondde{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.seconddename{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-bottom: .21rem;
+}
+.seconddename .name{
+    max-width: 20%;
+    font-size: .22rem;
+    color: #545353;
+    margin-right: .74rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.seconddename .job{
+    flex: 1;
+    font-size: .2rem;
+    color: #878686;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.secondtips{
+    width: 100%;
+    font-size: .22rem;
+    color: #a2a1a1;
+    margin-bottom: .22rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.price{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;    
+}
+.price span{
+    font-size: .16rem;
+    color: #a8a7a7;
+}
+.price .orange{
+    display: flex;
+    font-size: .20rem;
+}
+
+/*试读*/
+.coursediv{
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 5.6rem;
+    position: relative;
+    z-index: 1;
+}
+.coursepic{
+    width: 100%;
+    height: 5.6rem;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+}
+.coursetitle{
+    position: absolute;
+    bottom: .1rem;
+    left: .27rem;
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    z-index: 2;
+}
+.title{
+    width: 100%;
+    font-size: .34rem;
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: .22rem;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.tips{
+   width: 100%;
+    font-size: .26rem;
+    color: #fff;
+    margin-bottom: .37rem;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.courseintroduce{
+    position: absolute;
+    z-index: 1;
+    top: 5.6rem;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    margin-top: .24rem;
+}
+.courseinde{
+    -webkit-box-flex: 1;
+    box-flex: 1;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    width: 92%;
+    height: 100%;
+    padding: 0 .14rem;
+    background: #fff;
+    border-top-left-radius: .15rem;
+    border-top-right-radius: .15rem;
+    margin: 0 auto;
+
+}
+.courseindetitle{
+    font-size: .32rem;
+    color: #333;
+    margin-top: .24rem;
+    margin-bottom: .35rem;
+}
+.read *{
+    font-size: .26rem;
+    color: #666666;
+    line-height: 1.5em;
+}
+
+/*试读列表*/
+.apli{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
+    height: auto;
+    background: #fff;
+    border-radius: .15rem;
+    padding: .36rem .16rem;
+    margin: 0 auto;
+    margin-top: .11rem;
+    margin-bottom: .22rem;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+.aptitle{
+    width: 100%;
+    height: auto;  
+    margin-bottom: .31rem; 
+}
+.aptitle a{
+    width: 100%;
+    height: auto;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: .34rem;
+    color: #333;
+}
+.appic{
+    position: relative;
+    width: 100%;
+    height: 3.1rem;
+    margin-bottom: .35rem;
+}
+.appics{
+     width: 100%;
+    height: 3.1rem;
+    border-radius:.05rem;
+}
+.icoap{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: .55rem;
+    height: 1.2rem;
+    background: url(../image/icoap.png) top center no-repeat;
+    background-size: .55rem 1.2rem;
+    font-size: .22rem;
+    color: #fff;
+    text-align: center;
+    padding-top: .24rem;
+    line-height: 1.5em;
+}
+.aptext p{
+    font-size: .24rem;
+    color: #747373;
+    line-height: 1.5em;
+    padding-bottom: .34rem;
+    border-bottom: 1px solid #e6e6e7; 
+}
+.aptips{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: .25rem;
+}
+.aptips .aptipde{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: .28rem;      
+}
+.aptipde span{
+    display: inline-flex;
+    font-size: .22rem;
+    color: #abaaaa;
+    line-height: .28rem;
+}
+.icotime{
+    width: .28rem;
+    height: .28rem;
+    background: url(../image/icotime.png) center no-repeat;
+    background-size: 100% 100%;
+    margin-right: .08rem;
+}
+.icoeye{
+    width: .35rem;
+    height: .28rem;
+    background: url(../image/icoshowpassword@3x.png) left center no-repeat;
+    background-size: .35rem .18rem;
+    margin-right: .08rem;
+}
+.vipdiv{
+    width: 88%;
+    margin-top: .28rem;
+    padding-bottom: 0px; 
+}
+.vipdiv .rowpictitle{
+    /*border-bottom: 1px solid #e6e6e7;*/
+}
+.icoshow{
+    width: .20rem;
+    height: .12rem;
+    padding: 10px;
+    background: url(../image/icoredjb.png) center no-repeat;
+    background-size: .2rem .12rem;
+}
+.vipopen{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+}
+.vipli{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 1.2rem;
+    border-top: 1px solid #e6e6e7;
+}
+.vipprice{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1;
+}
+.vippricede{
+    font-size: .28rem;
+    color: #333;
+    margin-bottom: .14rem; 
+}
+.vippricede i{
+    font-size: .28rem;
+    padding: 0 .1rem;
+}
+.viptips{
+    font-size: .2rem;
+    color: #767676;
+}
+.vipbtn{
+    display: inline-flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 1.5rem;
+    width: 1.5rem;
+    height: .58rem;
+    margin-right: .18rem;
+    background: #e84938;
+    color: #fff;
+    font-size: .24rem;
+    text-align: center;
+    line-height: .58rem;
+    border-radius: .04rem;
+}
+.viprul{
+    width: 88%;
+    padding: .49rem .24rem;
+    text-align: center;
+}
+.viprul .rowpictitle{
+    justify-content: center;
+}
+.viprul .titletext{
+    font-size: .28rem; 
+}
+.icovip01{
+    width: .9rem;
+    height: .9rem;
+    display: flex;
+    background: url(../image/icovip01.png) center no-repeat;
+    background-size: .9rem .9rem;
+    margin-right: .15rem;
+}
+.fulidiv{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-top: 3rem;
+}
+.nonepic{
+    width: 1.52rem;
+    height: 1.52rem;
+}
+.fulip{
+    font-size: .28rem;
+    color: #acabab;
+    margin-top: .56rem;
+}
+.fulitips{
+    font-size: .3rem;
+    color: #333;
+    margin-top: .49rem; 
+}
+.govipbtn{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: .8rem;
+    border-radius: .06rem;
+    background: #e84938;
+    color: #fff;
+    font-size: .26rem;
+    margin-top: .42rem;
+}
+/*搜索*/
+.searchtop{
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: auto;
+    margin-top: .15rem;
+    margin-bottom: .2rem;
+}
+.searchinput{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: .55rem;
+}
+.searchinputs{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    height: .55rem;
+    background: #e6e6e6;
+    border-radius: .08rem;
+    margin-left: .32rem;
+}
+.icosearch{
+    display:flex;
+    width: .29rem;
+    height: .25rem;
+    background: url(../image/icosearch.png) center no-repeat;
+    background-size: .29rem .25rem;
+    padding: 0 .15rem;
+}
+.searchinp{
+    flex: 1;
+    font-size: .28rem;
+    line-height: .55rem;
+    color: #000;
+    background: none;
+}
+.cancel{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 1.28rem;
+    font-size: .24rem;
+
+}
+
+/*搜索页面*/
+.search-nav{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center; 
+    width: 100%;
+    height: 3.9166666666666665rem;
+    /*background: #efeff4;*/
+    /*border-bottom: 1px solid #d7d8dc;*/
+}
+.search-navul{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center; 
+    width: 100%;
+    height: .86rem;
+    margin:0 auto;
+    /*background: #fff;*/
+    position: relative;
+    box-shadow: 0px 5px 10px rgba(0,0,0,.1);
+}
+.author01{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center; 
+    width: 100%;
+    height: .86rem;
+    margin:0 auto;
+    /*background: #fff;*/
+    position: relative;
+    border-bottom: 1px solid #dcdcdc;
+}
+.search-navli{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start; 
+    width: 33%;
+    height: .86rem;
+}
+.author02{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: flex-start; 
+    width: 50%;
+    height: .86rem;
+    position: relative;
+    bottom: -3px;
+}
+.search-keyword{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center; 
+    width:100%;
+    height: .86rem;  
+    background: none;
+    color: #808285;
+    font-size:.28rem;
+}
+.author03{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center; 
+    width:100%;
+    height: .86rem;  
+    background: none;
+    color: #808285;
+    font-size:.28rem;
+}
+.keyed .search-keyword{
+    background: url(../image/sousuo@3x.png) center no-repeat;
+    background-size: .79rem .79rem;
+    color: #e84938;
+}
+.listed .author03{
+    background: url(../image/icoaut.png) bottom center no-repeat;
+    background-size: 2.1rem .1rem;
+}
+.search-keywordcenter{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start; 
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top:.86rem;
+    left: 0px;
+    /*background: #efeff4;*/
+    
+}
+.divblock{
+    display: flex;
+}
+.authorcenter01{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start; 
+    width: 100%;
+    height: auto;    
+    display: none;
+    padding-top: .5rem;
+}
+.search-keywordf{
+     display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start; 
+     width: 94%;
+     padding: 0px 3%;
+    height: auto;
+    margin: 0 auto;
+}
+/*div.search-keywordf:last-child{
+    border: 0px;
+}*/
+.search-keywordf h6{
+    font-size:.22rem;
+    color: #919191;
+    margin-top: .54rem;
+    margin-bottom: .37rem;
+}
+.search-keywordli{
+     display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start; 
+     width: 100%;
+    height: auto;
+}
+
+.search-keywordli span{
+    display: inline-flex;
+     flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start; 
+    padding: 0.2rem;
+    font-size:.28rem;
+    color: #333;
+    background: #e6e6e6;
+    margin-right: .19rem;
+    margin-bottom: .20rem;
+    border-radius: .05rem;
+}
+.reddiv{
+    background: #e84938!important;
+    color: #fff!important;
+}
+
+.search-inputsea{
+    display: flex;
+     flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height:1.8333333333333333rem;
+    margin-top: 1em;
+}
+.search-inputs{
+    display: flex;
+     flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    width:16.5rem; 
+    height:2rem;
+    line-height: 1.8333333333333333rem;
+    border: 0px;
+    font-size:1.3333333333333333rem;
+    border-radius: 6px;
+    background: none;
+    text-indent: 4px;
+    margin:0px;
+    padding: 0px;
+    color: #000;
+    background: #fff;
+}
+input.search-inputs::-ms-input-placeholder{
+    text-align: left;color: #bcbec0 
+}
+input.search-inputs::-webkit-input-placeholder{
+    text-align: left;color: #bcbec0 
+}
+.search-btn{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width:4.5rem;
+    height:1.6666666666666667rem;
+    text-align: center;
+    font-size: 1.3333333333333333rem;
+    line-height: 1.8333333333333333rem;
+    border: 2px solid #fff;
+    color: #fff;
+    border-radius: 6px;
+    background: none;
+    /*margin-right: 1.333333rem;*/
+    padding: 0px;
+
+}
+.indexbtns{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;    
+    position: absolute;
+    top: 0px;
+    z-index: 999;
+}
+.indexsearch{
+    display: flex;
+    width: .43rem;
+    height: .38rem;
+    padding: .33rem .4rem;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.indexsearch img{
+    width: .43rem;
+    height: .38rem;
+}
+
+/*结算台*/
+.settlediv{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    height: auto;
+    background: #fff;
+    border-radius: .15rem;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.1);
+    margin: 0 auto;
+    margin-top: .18rem;
+    padding: .40rem .24rem .3rem .24rem; 
+}
+.settlede{
+     display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: .74rem;
+}
+.settletext{
+     display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 1;    
+}
+.settlename{
+    font-size: .3rem;
+    color: #333;
+    margin-bottom: .4rem;
+}
+.settleprice{
+    font-size: .18rem;
+    color: #ea482f;
+}
+.payway{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: auto; 
+}
+.paywayti{
+    font-size: .24rem;
+    color: #4a4a4a;
+    margin-top: .4rem;
+    margin-bottom: .2rem;
+    margin-left: .3rem;
+}
+.paywayde{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    height: auto; 
+    background: #fff;
+    border-radius: .15rem;
+    padding: .40rem .24rem .3rem .24rem; 
+    margin: 0 auto;
+}
+.paywayde .icopay{
+    margin-right: .23rem;
+}
+.icopay{
+    display: flex;
+    width: .4rem;
+    height: .4rem;
+    background: url(../image/icopay.png) center no-repeat;
+    background-size: 100% 100%;
+}
+.paytext{
+    display: flex;
+    flex: 1;
+    font-size: .24rem;
+}
+.paytext i{
+    font-size: .24rem;
+    margin-left: .12rem;
+}
+.paywayde .orangebtn{
+    width: 1.3rem;
+    height: .58rem;
+}
+.coupon{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+    margin-top: .37rem;
+}
+.couponname{
+    font-size: .28rem;
+}
+.isno{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: .24rem;
+    color: #939393;
+}
+.isno .icogryj{
+    display: flex;
+    width: .10rem;
+    height: .19rem;
+    margin-left: .2rem;
+    background-size: .1rem .19rem; 
+}
+.paytips{
+    width: 90%;
+    padding: .40rem .24rem .3rem .24rem; 
+}
+.paytips p{
+    width: 100%;
+    font-size: .22rem;
+    color: #909090;
+    line-height: 1.5em;
+}
+
+/*文稿*/
+.maunimg{
+    width: 100%;
+    height: 2.44rem;
+    border-radius: .15rem;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.1);
+    margin-bottom: .17rem;
+    margin-top: .04rem;    
+}
+.maunimg img{
+    width: 100%;
+    height: 2.44rem;
+}
+.maumtitle{
+    box-sizing: border-box;
+    width: 94%;
+    height: auto;
+    background: #fff;
+    border-radius: .15rem;
+    box-shadow: 0px 0px 15px rgba(0,0,0,.1);
+    padding: .4rem .34rem .37rem .25rem;
+    margin: 0 auto;
+    margin-bottom: .17rem;
+}
+.maumtitle h2,.maumtitle .maumnum{
+    font-size: .6rem;
+    line-height: 1.5em;
+    color: #333;
+    margin-bottom: .38rem;
+}
+.maumauthordiv{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.maumauthorde{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.authornameimg{
+    width: .62rem;
+    height: .62rem;
+    margin-right: .15rem;
+    border-radius: 50%;
+}
+.authorname,.maumtime{
+    font-size: .2rem;
+    color: #abaaaa;
+}
+.authorname{
+    margin-bottom: .14rem;
+}
+.maumbo{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    width: 94%;
+    height: auto;
+    background: #fff;
+    border-radius: .15rem;
+    box-shadow: 0px 0px 6px rgba(0,0,0,.1);
+    padding: .21rem .34rem .21rem .25rem;
+    margin: 0 auto;
+    margin-bottom: .17rem;
+}
+.icobo{
+    display: flex;
+    flex: 0 0 .91rem;
+    width: .91rem;
+    height: .91rem;
+    background: url(../image/icobo.png) center no-repeat;
+    background-size: 100% 100%;
+    margin-left: .23rem;
+    margin-right: .21rem;
+}
+.bode{
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /*width: 100%;*/
+}
+.bode h2{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: .18rem;
+}
+.bode h2,.bode .maumnum{
+    display: inline-flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: .30rem;
+    color: #333;
+}
+.bodes{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+}
+.bodes span{
+    font-size: .16rem;
+    color: #a6a6a6;
+    margin-right: .43rem;
+}
+.boxiaz{
+    flex: 0 0 .28rem;
+    width: .28rem;
+    height: .36rem;
+}
+.xiaz{
+    display: flex;
+    width: .28rem;
+    height: .36rem;
+    background: url(../image/icoxiaz.png) center no-repeat;
+    background-size: .28rem .36rem;
+}
+.maumcenter{
+    box-sizing: border-box;
+    width: 94%;
+    height: auto;
+    background: #fff;
+    border-radius: .15rem;
+    box-shadow: 0px 0px 15px rgba(0,0,0,.1);
+    padding: .35rem .34rem .37rem .25rem;
+    margin: 0 auto;
+    margin-bottom: .17rem;
+}
+.maumauthor{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    font-size: .22rem;
+    color: #a6a6a6;
+    text-align: center;
+    margin-bottom: .67rem;
+}
+.read2{
+    font-size: .28rem;
+    color: #000;
+    line-height: 2em;
+}
+.read2 *{
+    font-size: .28rem;
+    color: #000;
+    line-height: 2em;
+}
+
+/*我的*/
+.mydiv{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+.mybg{
+    display: flex;
+    width: 100%;
+    height: 3.4rem;
+}
+.mypic{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    top: 0px;
+    z-index: 99;
+    margin-bottom: 1.9rem;
+}
+.myico{
+    position: absolute;
+    top: 1.57rem;
+    left: 50%;
+    margin-left: -.64rem;
+    width: 1.28rem;
+    height: 1.28rem;
+    background: #fff;
+    border-radius: 50%;
+    padding: 3px;
+    z-index: 3;
+}
+.mytext{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    position: absolute;
+    top: 2.49rem;
+    z-index: 2;
+    padding-top: .72rem;
+    padding-bottom: .54rem;
+    border-radius: .15rem;
+    background: #fff;
+    width: 92%;
+
+}
+.myname{
+    width: 100%;
+    height: auto;
+    line-height: 1.2em;
+    text-align: center;
+    font-size: .28rem;
+    color: #d95b44;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-bottom: .24rem;
+}
+.mytips{
+    display: inline-flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: auto;
+    font-size: .19rem;
+    color: #807f7e;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.mylist{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 92%;
+    height: auto;
+    background: #fff;
+    border-radius: .15rem;
+    margin-bottom: .27rem;
+}
+.myli{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 1.09rem;    
+   
+}
+.mytitles{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.icomy01,.icomy02,.icomy03,.icomy04,.icomy05,.icomy06,.icomy07{
+    display: inline-flex;
+    width: .48rem;
+    height: .48rem;
+    margin-right: .19rem;
+    background: url(../image/icomy03.png) center no-repeat;
+    background-size:.48rem .48rem; 
+    margin-left: .24rem;
+}
+.icomy02{
+    background: url(../image/icomy04.png) center no-repeat;
+    background-size:.48rem .48rem; 
+}
+.icomy03{
+    background: url(../image/icomy05.png) center no-repeat;
+    background-size:.48rem .48rem; 
+}
+.icomy04{
+    background: url(../image/icomy06.png) center no-repeat;
+    background-size:.48rem .48rem; 
+}
+.icomy05{
+    background: url(../image/icomy07.png) center no-repeat;
+    background-size:.48rem .48rem; 
+}
+.icomy06{
+    background: url(../image/icomy09.png) center no-repeat;
+    background-size:.48rem .48rem; 
+}
+.icomy07{
+    background: url(../image/icoweixin@3x.png) center no-repeat;
+    background-size:.48rem .48rem; 
+}
+.mytap{
+    flex: 1;
+    font-size: .28rem;
+}
+.myjt{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    height: 1.09rem;
+    border-bottom: 1px solid #e6e6e7;
+}
+.myjt a{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+    height: 1.09rem;
+}
+.myright{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.myprice{
+    font-size: .22rem;
+    color: #e84938;
+    margin-right: .15rem;
+}
+.myjt .icoredj{
+    display: flex;
+    width: .12rem;
+    height: .23rem;
+    background: url(../image/icoredj.png) center no-repeat;
+    background-size: .12rem .23rem;
+    margin-right: .26rem;
+}
+/*编辑资料*/
+.editdiv{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 92%;
+    height: auto;
+    background: #fff;
+    border-radius: .15rem;
+    margin: .2rem auto;
+}
+.editpic{
+    width: 1.56rem;
+    height: 1.56rem;
+    margin-top: .22rem;
+    margin-bottom: .4rem;
+}
+.mytips{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    font-size: .22rem;
+    color: #807f7e;
+    margin: 0 auto;
+    margin-bottom: .43rem;
+    text-align: center;
+}
+
+.editlist{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 92%;
+    height: auto;
+    background: #fff;
+    border-radius: .15rem;
+    margin: 0 auto;
+    margin-bottom: .2rem;
+}
+.editli{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 90%;
+    height: 1.19rem;
+    margin: 0 5%;
+    border-bottom: 1px solid #e6e6e7;
+}
+.editli label{
+    display: inline-flex;
+    flex: 0 0 1.64rem;
+    height: 1.19rem;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: .28rem;
+    color: #333;
+}
+.editli input{
+    display: inline-flex;
+    flex: 1;
+    height: 1.19rem;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: .28rem;
+    text-align: left;
+    background: #fff;
+}
+/*我的收藏*/
+.jinico{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: .55rem;
+    height: .55rem;
+    background: url(../image/icojin.png) center no-repeat;
+    background-size: 100% 100%;
+}
+.jinico img{
+    width: .23rem;
+    height: .23rem;
+    margin-top: .07rem;
+}
+.feedback{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: .4rem;
+}
+.feedbacktitle{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 1.52rem;
+    height: .42rem;
+    line-height: .42rem;
+    text-align: center;
+    color: #e84938;
+    border: 1px solid #e84938;
+    border-radius: .04rem;
+    margin-bottom: .19rem;
+}
+.feedbacktips{
+    font-size: .24rem;
+    color: #606060;
+    line-height: 1.5em;
+    margin-bottom: .31rem;
+}
+.feedbackcenter{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+}
+.yij{
+    box-sizing: border-box;
+    width: 100%;
+    height: 2.3rem;
+    font-size: .2rem;
+    background: #fff;
+    border: 1px solid #e84938;
+    border-radius: .15rem;
+    padding: .2rem .18rem .11rem .13rem;
+}
+.feedbackcenter h4{
+    font-size: .24rem;
+    margin-top: .27rem;
+    margin-bottom: .31rem;
+
+}
+.feedbackpics{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    width: 1.3rem;
+    height: 1.3rem;
+    background: #fff;
+    border-radius: .1rem;
+    border: 1px solid #e84938;
+    margin-bottom: .84rem;
+}
+.feedbackpics img{
+    width: .66rem;
+    height: .44rem;
+}
+.orangebtn{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: .9rem;
+    line-height: .9rem;
+    background: #e84938;
+    font-size: .28rem;
+    border-radius: .10rem;
+    text-align: center;
+}
+
+/*我的账户*/
+.mycount{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 94%;
+    height: auto;
+    background: #fff;    
+    border-radius: .3rem;    
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    padding: .58rem .33rem .46rem .33rem;
+    margin: 0 auto;
+    margin-bottom: .31rem;
+    margin-top: .2rem;
+}
+.mymoney{
+    font-size: .62rem;
+    margin-bottom: .53rem;
+}
+.mybang{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+}
+.mybang a{
+    display: inline-flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    height: auto;
+    text-align: center;
+    border-right: 1px solid #e84938;
+}
+.mybang a:last-child{
+    border-right: 0px;
+}
+.chongzhi{
+    padding-bottom: .67rem;
+}
+.czbtns{
+    display: inline-flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: .29rem;
+}
+.czdiv{
+    display: inline-flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    height: auto;
+    border: 1px solid #e84938;
+    border-radius: .05rem;
+    color: #e84938;
+    font-size: .32rem;
+    padding: .4rem 0px;
+    margin-bottom: .2rem;
+}
+.czed{
+    background: #e84938;
+    color: #fff;
+}
+
+/*设置*/
+.mynic{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    font-size: .38rem;
+    color: #333;
+    margin-top: .72rem;
+    margin-bottom: .57rem;
+}
+.proimgdiv{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: relative; 
+    width: 1.91rem;
+    height: 1.91rem;
+    z-index: 2
+}
+.proimgdiv .propicall{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2
+}
+.icoread{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: .42rem;
+    height: .66rem;
+    background: url(../image/icojin.png) center no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 0px;
+    left: -4px;
+    color: #fff;
+    text-align: center;
+    font-size: .22rem;
+    padding-top: 2px;
+    z-index: 3
+}
+.authorpro{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: .36rem;
+}
+.authortipsred{
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: #e7544a;
+    color: #fff;
+    margin-right: .18rem;
+    font-size: .20rem;
+}
+.authortipsorange{
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: #db7444;
+    color: #fff;
+    margin-right: .18rem;
+    font-size: .16rem;
+}
+.authortipsoldred{
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: #9a201d;
+    color: #fff;
+    margin-right: .18rem;
+    font-size: .16rem;
+}
+.authortext{
+    font-size: .22rem;
+}
+.wenzdediv{
+    width: 100%;
+    height: 3.7rem;
+    margin-bottom: .26rem;
+}
+.wenzde{
+    width: 100%;
+    height: 3.7rem;
+}
+.wenzt h2{
+    font-size: .36rem;
+    font-weight: bold;
+}
+.wenzauthorde{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 1;
+    height: auto;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.wenzauthorde .authorname{
+    margin-bottom: .12rem;
+}
+.icobtngz{
+    font-size: .2rem;
+    color: #fff;
+    background: #e84938;
+    padding: 3px 10px;
+    border-radius: .05rem;
+    text-align: center;
+}
+.authormar{
+    margin-bottom: .32rem;
+    font-size: .24rem;
+}
+
+#wb_selector{
+    background: none;
+}
+/*资讯二级列表页面*/
+.secondpagelist .rowpicliall{
+    width: 90%;
+    height: auto;
+    padding: .26rem .22rem .26rem .08rem;
+    background: #fff;
+    border-radius: .15rem;
+    margin-bottom: .18rem;
+}
+.secondpagelist .wenzdeall{
+    background: url(../image/icogryj.png) right center no-repeat;
+    background-size: .09rem .17rem;
+}
+.guanzhulist{
+    margin-top: .2rem;
+}
+.guanzhulist .authornameimg{
+    width: 1.06rem;
+    height: 1.06rem;
+    margin-right: .35rem;
+}
+.guanzhulist .wenzauthorde .authorname{
+    font-size: .32rem;
+    margin-bottom: .2rem;
+    color: #333;
+}
+.guanzhulist .maumtime{
+    flex: 1;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.searchdiv .rowpicliall{
+    width: 90%;
+    height: auto;
+    padding: .26rem .22rem .26rem .08rem;
+    background: #fff;
+    border-radius: .15rem;
+    margin: 0 auto;
+    margin-bottom: .18rem;
+
+}

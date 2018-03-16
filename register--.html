@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">		
+		<title>手机账号注册</title>
+		<link rel="stylesheet" href="css/lqbase.css" />
+		<link rel="stylesheet" href="css/lqpublic.css" />
+		<script src="js/jquery-1.11.0.min.js"></script>
+
+	</head>
+	<body>
+		<!--头部-->
+		<div class="tophead">
+			<a class="topback" onClick="javascript :history.back(-1);"><i class="icoback"></i>返回</a>
+			<div class="toptitle">手机账号注册</div>
+		</div>
+
+		<form name="registerform" action="" onsubmit="register()" method="post">
+		<div class="register">
+				<div class="userdiv">
+					<div class="userp2"><div class="phoneup"><span>+86</span><i class="ico01"></i></div><input type="text" name="phone" id="phone" placeholder="请输入手机号" value=""> </div>
+					<div class="userp2"><label class="rpassword">密码</label><input type="password" name="mima" id="mima" placeholder="请设置密码" value=""> </div>
+					
+				</div>
+
+			</div>
+			<!-- submit -->
+			<input class="nextbtn orangebtn" type="submit" value="下一步"></input>
+		</form>	
+		
+			<!-- 其他注册方式 -->
+			<div class="otheregister">
+				<h2 class="ortitle">其他注册方式</h2>
+				<div class="orcenter">
+					<div class="way"><a href="#"><img class="wayimg" src="image/icoqq@3x.png"> <span class="waytext">微信</span></a></div>
+					<div class="way"><a href="#"><img class="wayimg" src="image/icoweixin@3x.png"> <span class="waytext">QQ</span></a></div>
+					<div class="way"><a href="#"><img class="wayimg" src="image/icosina@3x.png"> <span class="waytext">微博</span></a></div>
+				</div>
+			</div>
+			
+		
+
+<script type="text/javascript">
+				
+				// 提交表单
+				function register(){	
+					var ophone = $('#phone').val();//手机号
+					var omima = $('#mima').val();//密码
+					var regu = /^[1][0-9][0-9]{9}$/; /*判断手机格式是否正确*/	
+					var re = new RegExp(regu);
+
+					// 验证为空，格式正确
+					if (ophone.length!=0 && re.test(ophone) && omima.length!=0) {
+						console.log("提交表单");
+					$.ajax({
+						type:'post',
+						async:false,
+						url : 'https://xiaochengxu.itenez.com/pxjfoption/front/login/registerUser',
+						dataType : "jsonp",//数据类型为jsonps
+                		jsonp: "jsonpCallback",//服务端用于接收callback调用的function名的参数,
+                		data:{
+                			'tel':ophone,
+                			'oldpassword':omima,
+                			'invitationTel':oyphone
+                		},
+                		success:function(res){
+                			if(res.status==200 || res.status=='200'){
+                				console.log('提交成功 ');
+                			}else if(res.status==205 || res.status=='205'){
+                				console.log('邀请电话不存在');
+                			}else if(res.status==204 || res.status=='204'){
+                				console.log('用户已存在');
+                			}else if(res.status==201 || res.status=='201'){
+                				console.log('系统异常');
+                			}
+
+                		}
+					});
+					}else{
+						if(ophone.length==0){
+						alert('请输入手机号');
+						return
+						}
+						if(re.test(ophone)==false){
+							alert("请输入正确手机号");
+							return
+						}if(re.test(oyphone)==false){
+							alert("请输入正确邀请人手机号");
+							return
+						}
+						if(omima.length==0){
+							alert('请输入密码');
+							return
+						}
+						if(oyphone.length==0){
+							alert('请输入邀请人手机号');
+							return
+						}
+						  if($("#gou").is(":checked")==false){
+			            	alert("请勾选阅读按钮");
+			            	return
+			            }
+					}
+
+				}
+			</script>
+		<script src="js/common.js"></script>
+	</body>	
+</html>

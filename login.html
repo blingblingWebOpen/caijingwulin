@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns:wb="http://open.weibo.com/wb">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">		
+		<title>手机快速登录</title>
+		<script src="js/common.js"></script>
+		<!-- <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=160095107&debug=true" type="text/javascript" charset="utf-8"></script>微博		
+				<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="500595634" charset="utf-8"></script>qq登录 -->		<link rel="stylesheet" href="css/lqbase.css" />
+		<link rel="stylesheet" href="css/lqpublic.css" />
+		<script src="js/jquery-1.11.0.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script src="js/jquerysession.js"></script>
+		<link rel="stylesheet" href="css/message.css" />
+		<script src="js/message.js"></script>
+		
+	</head>
+	<body>
+		<!--头部-->
+		<div class="tophead">
+			<a class="topback" onClick="javascript:history.back(-1);"><i class="icoback"></i>返回</a>
+			<div class="toptitle">手机快速登录</div>
+		</div>
+
+		<!-- <form name="login" > -->
+		<div class="form">
+			<div class="register">
+				<div class="userdiv">
+					<div class="userp2"><input type="text" name="phone" id="phone" placeholder="请输入手机号" value=""> 
+					<div class="yanzm">
+						<input class="yanz" type="button" value='获取验证码'/>
+						<input class="yanztime" type="button" value=''/>
+					</div>
+					</div>
+
+					<div class="userp2"><input type="text" name="yanzm" id="yanzm" placeholder="请输入验证码" value=""> </div>		
+				</div>
+			</div>
+
+			<!-- submit -->
+			<input class="nextbtn orangebtn" type="submit" value="登录" onclick="register()"></input>
+		</div>	
+		<!-- </form> -->
+			<p class="logintips">登录即代表你已同意<a class="orange" href="xieyi.html">《财经武林用户协议》</a></p>
+
+			<!-- 其他注册方式 -->
+			<!-- <div class="otheregister">
+				<h2 class="ortitle">第三方账号登录</h2>
+				<div class="orcenter">
+					<div class="way"><a href="#"><img class="wayimg" src="image/icoqq@3x.png"> <span class="waytext">QQ</span></a>
+					<div id="qqLoginBtn"></div>
+					</div>
+					<div class="way"><a href="#"><img class="wayimg" src="image/icoweixin@3x.png"> <span class="waytext">微信</span></a></div>
+					<div class="way">
+					<a href="#"><img class="wayimg" src="image/icosina@3x.png"> <span class="waytext">微博</span></a>
+					<div id="wb_connect_btn"></div>
+					</div>
+					</div>
+			</div> -->
+
+
+
+<script type="text/javascript">		
+
+// 微博登录
+
+/*    WB2.anyWhere(function (W) {
+        W.widget.connectButton({
+            id: "wb_connect_btn",
+            type: '3,2',
+            callback: {
+                login: function (o) { //登录后的回调函数
+　　　　　　　　　　　　console.log(o);
+                    thirdparty(null,null,o.avatar_hd, o.name ,3, o.id);//个人方法
+                    try{
+                        document.getElementsByClassName('loginout')[0].click();
+　　　　　　　　　　　　　　　//页面需求，当前页面登录完成之后，不进行跳转，所以模拟点击事件，让微博账号在当前域中退出。不影响下次登录。（元素为微博动态添加）
+　　　　　　　　　　　　　　　//微博没有提供退出方法。下面的logout为另一种开发模式调用。
+
+                    }catch(e){
+                        console.log(e);
+                    }
+                },
+                logout: function () { //退出后的回调函数
+                }
+            }
+        });
+    });*/
+// qq登录
+/*QC.Login({
+            //btnId：插入按钮的节点id，必选
+            btnId:"qqLoginBtn",
+            //用户需要确认的scope授权项，可选，默认all
+            scope:"all",
+            //按钮尺寸，可用值[A_XL| A_L| A_M| A_S|  B_M| B_S| C_S]，可选，默认B_S
+            size: "B_S"
+        }, function(reqData, opts){//登录成功
+            //根据返回数据，更换按钮显示状态方法
+            console.log(reqData);//查看返回数据
+            QC.Login.getMe(function(openId, accessToken){//获取用户的openId
+                console.log('QQOPENID:'+openId);
+                thirdparty(null,null,reqData.figureurl_qq_2,reqData.nickname,1,openId);
+                QC.Login.signOut();//退出QQ登录调用事件
+            });
+        }
+    );
+*/
+
+
+var code; //验证码
+
+var wait = 60;// 计时器
+var yanz = $('.yanz');
+var yanztime = $('.yanztime');
+function time(o) {
+  if (wait == 0) {
+    yanz.css('display','flex');  
+    yanztime.css('display','none'); 
+    wait = 60;
+    yanztime.val(wait+'s');    
+  } else {
+    yanz.css('display','none');  
+    yanztime.css('display','flex');     
+	yanztime.val(wait+'s');      
+    wait--;
+    setTimeout(function () {
+      time(o)
+    },
+      1000)
+  }
+}
+
+  // 点击发送验证码
+  $('.yanz').click(function(){
+    var that = this;
+    var phone = $('#phone').val();
+    var reg = new RegExp(/^[1][0-9][0-9]{9}$/);
+    if (phone == null || phone == '') {
+      $.message('请输入手机号');
+      return false;
+    }
+    if (reg.test(phone) == false || reg.test(phone) == "false") {
+      alert('手机号格式不正确');
+      return false;
+    }        
+    console.log('phone=' + phone);
+
+    //验证码
+    time(that);
+    $.get(url + 'account/getLoginVerificationCode',
+	    {
+	    	'mobile': phone,
+	    },
+    	function(data,status){
+    		if (data.code == "2000") {
+				$.message('验证码已发送');
+				code = data.data;
+				$("#yanzm").val(code);
+				console.log('验证码'+code);
+			} else if(res.code == "5000"){
+				$.message('系统异常');
+			}			
+		});
+});
+
+// 提交表单
+function register(){	
+	var phone = $('#phone').val();//手机号
+	var yanzm = $('#yanzm').val();//验证码
+	var regu = /^[1][0-9][0-9]{9}$/; /*判断手机格式是否正确*/	
+	var re = new RegExp(regu);
+	
+	// 验证为空，格式正确,验证码正确
+	if (phone.length!=0 && re.test(phone) && yanzm.length!=0 && yanzm==code) {
+		console.log("提交表单");
+		$.ajax({
+			type:"post",
+			url: url+'account/login',
+			data:
+			{
+			'mobile': phone,
+			'verificationCode': yanzm
+			},		
+			// contentType: "application/json", // POST时必须	
+			success: function(data,status){
+			if(data.code=='2000'){
+					$.message('登录成功');	
+					userid = data.data.account.token;
+					nickname = data.data.account.nickname;
+					name = data.data.account.name;
+					birthday = data.data.account.birthday; 
+					education = data.data.account.education; //学历
+					industry = data.data.account.industry; //行业
+					occupation = data.data.account.occupation; //职业
+					sex = data.data.account.sex; //性别
+					briefIntroduction = data.data.account.briefIntroduction; //简介
+
+					$.session.set('token',userid);//添加值到session中
+					$.session.set('name',name);
+					$.session.set('nickname',nickname);
+					$.session.set('birthday',birthday);
+					$.session.set('education',education);
+					$.session.set('industry',industry);
+					$.session.set('occupation',occupation);
+					$.session.set('sex',sex);
+					$.session.set('briefIntroduction',briefIntroduction);
+					console.log('nickname'+$.session.get('nickname'));
+					console.log('birthday'+$.session.get('birthday'));
+					console.log('education'+$.session.get('education'));
+
+					console.log('session.token==='+$.session.get('token'));//获得session中sid的值
+					// $.cookie="JSESSIONID="+userid;
+					window.location.href = "index.html";
+				}else if(data.code=='5000'){
+					$.message('系统异常5000');
+				}else{
+					$.message('系统异常');
+				}
+			}
+		
+		})	
+	}else{
+		if(phone.length==0){
+			$.message('请输入手机号');
+			return;
+		}
+		if(yanzm.length==0){
+			$.message('请输入验证码');
+			return;
+		}
+		if(yanzm!=code){
+			$.message('验证码有误');
+		}
+	}
+	
+	
+	return false;
+}
+
+/*直接点击enter免除手动点击登录按钮*/    
+$(document).keyup(function(event){
+    
+if(event.keyCode ==13){
+   register();    
+}
+    
+});
+</script>
+
+
+	</body>	
+</html>

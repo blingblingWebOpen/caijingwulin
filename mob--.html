@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="keywords" content="武林财经">				
+		<title>登录</title>
+		<link rel="stylesheet" href="css/lqbase.css" />
+		<link rel="stylesheet" href="css/lqpublic.css" />
+
+	</head>
+	<body>
+		<!--头部-->
+		<div class="tophead">
+			<a class="topback" onClick="javascript :history.back(-1);"><i class="icoback"></i>返回</a>
+			<div class="toptitle">手机账号注册</div>
+		</div>
+
+		<!-- 中间内容部分 -->
+		<div class="centerwrapper">
+			
+
+		</div>	
+
+			<!-- 底部导航 -->
+		<div id="footernav">
+			<a class="jinc onthis" href="index.html">
+				<i class="footerimg1"></i>
+				<span class="red">首页</span>
+			</a>
+			<a class="jinc" href="classify.html">
+				<i class="footerimg2"></i>
+				<span>分类</span>
+			</a>
+			<a class="jinc" href="purchased.html">
+				<i class="footerimg3"></i>
+				<span>已购</span>
+			</a>
+			<a class="jinc" href="my.html">
+				<i class="footerimg4"></i>
+				<span>我的</span>
+			</a>
+		</div>
+		<script type="text/javascript">
+		window.onload=function(){
+				$(".jinc").click(function(){
+					$(this).addClass('onthis').siblings('a').removeClass('onthis');					
+				})
+			}
+		</script>
+		<script src="js/common.js"></script>
+		<script src="js/jquery-1.11.0.min.js"></script>
+		<script type="text/javascript">
+	// 密码显示隐藏，改变type的值 
+    // var demoImg = document.getElementById("demo_img"); //图片  
+/*    var demoInput = document.getElementById("mima");  
+    //隐藏text block，显示password block  
+    function hideShowPsw(){  
+        if (demoInput.type == "password") {  
+            demoInput.type = "text";  
+            // demo_img.src = "invisible.png";  
+        }else {  
+            demoInput.type = "password";  
+            // demo_img.src = "visible.png";  
+        }  
+    }; 
+    $('.showpassword').click(function(){
+    	hideShowPsw();
+    });*/
+		</script>
+	</body>	
+</html>
